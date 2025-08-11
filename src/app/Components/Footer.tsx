@@ -1,15 +1,22 @@
-"use client"
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook, faInstagram, faThreads, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+"use client";
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFacebook,
+  faInstagram,
+  faThreads,
+  faLinkedin,
+} from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => {
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
-  const [email, setEmail] = useState('');
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-  const [message, setMessage] = useState('');
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     setCurrentYear(new Date().getFullYear());
@@ -17,22 +24,22 @@ const Footer = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Basic email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      setStatus('error');
-      setMessage('Please enter a valid email address.');
+      setStatus("error");
+      setMessage("Please enter a valid email address.");
       return;
     }
-    
-    setStatus('loading');
+
+    setStatus("loading");
 
     try {
-      const response = await fetch('/api/newsletter', {
-        method: 'POST',
+      const response = await fetch("/api/newsletter", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ email }),
       });
@@ -40,22 +47,24 @@ const Footer = () => {
       const data = await response.json();
 
       if (data.success) {
-        setStatus('success');
-        setMessage('Thank you! You have been successfully subscribed to our newsletter.');
-        setEmail('');
+        setStatus("success");
+        setMessage(
+          "Thank you! You have been successfully subscribed to our newsletter."
+        );
+        setEmail("");
       } else {
-        setStatus('error');
-        setMessage(data.error || 'Failed to subscribe. Please try again.');
+        setStatus("error");
+        setMessage(data.error || "Failed to subscribe. Please try again.");
       }
     } catch (err) {
-      console.error('Newsletter subscription error:', err);
-      setStatus('error');
-      setMessage('Failed to subscribe');
+      console.error("Newsletter subscription error:", err);
+      setStatus("error");
+      setMessage("Failed to subscribe");
     }
 
     setTimeout(() => {
-      setStatus('idle');
-      setMessage('');
+      setStatus("idle");
+      setMessage("");
     }, 3000);
   };
 
@@ -65,9 +74,16 @@ const Footer = () => {
         {/* Newsletter - Smaller */}
         <div className="mb-4 sm:mb-6">
           <div className="max-w-lg mx-auto text-center px-2">
-            <h3 className="text-sm sm:text-base font-medium text-white mb-1">Subscribe to our Newsletter</h3>
-            <p className="text-xs text-gray-400 mb-2">Stay updated with our latest news</p>
-            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-1 max-w-sm mx-auto">
+            <h3 className="text-sm sm:text-base font-medium text-white mb-1">
+              Subscribe to our Newsletter
+            </h3>
+            <p className="text-xs text-gray-400 mb-2">
+              Stay updated with our latest news
+            </p>
+            <form
+              onSubmit={handleSubmit}
+              className="flex flex-col sm:flex-row gap-1 max-w-sm mx-auto"
+            >
               <input
                 type="email"
                 placeholder="Enter your email"
@@ -78,14 +94,18 @@ const Footer = () => {
               />
               <button
                 type="submit"
-                disabled={status === 'loading'}
+                disabled={status === "loading"}
                 className="px-3 py-1 text-xs bg-white text-black rounded hover:bg-blue-400 disabled:opacity-50"
               >
-                {status === 'loading' ? 'Subscribing...' : 'Subscribe'}
+                {status === "loading" ? "Subscribing..." : "Subscribe"}
               </button>
             </form>
             {message && (
-              <p className={`mt-1 text-xs ${status === 'success' ? 'text-green-400' : 'text-red-400'}`}>
+              <p
+                className={`mt-1 text-xs ${
+                  status === "success" ? "text-green-400" : "text-red-400"
+                }`}
+              >
                 {message}
               </p>
             )}
@@ -96,7 +116,10 @@ const Footer = () => {
           {/* Brand Section - Larger logo */}
           <div className="space-y-2 text-center sm:text-left">
             <div className="flex-shrink-0 flex items-center">
-              <Link href="/" className="flex items-center group transition-all duration-500 ease-in-out">                        
+              <Link
+                href="/"
+                className="flex items-center group transition-all duration-500 ease-in-out"
+              >
                 <Image
                   src="/logo/logo.png"
                   alt="Company Logo"
@@ -104,20 +127,29 @@ const Footer = () => {
                   height={200}
                   className="h-14 w-auto transition-all duration-500 ease-in-out group-hover:scale-105 group-hover:brightness-110"
                   priority
-                /> 
+                />
               </Link>
             </div>
             <p className="text-xs text-gray-400">
               Transforming ideas into digital reality with innovative solutions.
             </p>
             <div className="flex justify-center sm:justify-start space-x-2">
-              <a href="https://www.instagram.com/lovosis_technology_private_ltd" className="text-gray-400 hover:text-blue-400 transition-colors duration-300">
+              <a
+                href="https://www.instagram.com/lovosis_technology_private_ltd"
+                className="text-gray-400 hover:text-blue-400 transition-colors duration-300"
+              >
                 <FontAwesomeIcon icon={faInstagram} className="h-4 w-4" />
               </a>
-              <a href="https://www.threads.net/@lovosis_technology_private_ltd" className="text-gray-400 hover:text-blue-400 transition-colors duration-300">
+              <a
+                href="https://www.threads.net/@lovosis_technology_private_ltd"
+                className="text-gray-400 hover:text-blue-400 transition-colors duration-300"
+              >
                 <FontAwesomeIcon icon={faThreads} className="h-4 w-4" />
               </a>
-              <a href="https://www.linkedin.com/company/lovosis-technology-private-limited" className="text-gray-400 hover:text-blue-400 transition-colors duration-300">
+              <a
+                href="https://www.linkedin.com/company/lovosis-technology-private-limited"
+                className="text-gray-400 hover:text-blue-400 transition-colors duration-300"
+              >
                 <FontAwesomeIcon icon={faLinkedin} className="h-4 w-4" />
               </a>
             </div>
@@ -125,15 +157,26 @@ const Footer = () => {
 
           {/* Quick Links - Smaller */}
           <div className="text-center sm:text-left">
-            <h3 className="text-sm font-medium text-white mb-2">Quick Links</h3>
+            <h3 className="text-sm font-medium text-white mb-2">Solutions</h3>
             <ul className="space-y-1 text-xs">
-              {['About', 'Services', 'Products', 'Contact', 'Gallery', 'Careers'].map((item) => (
-                <li key={item}>
+              {[
+                { name: "IT & AI Solutions", path: "/solution/it" },
+                {
+                  name: "Elevator ELV Solutions",
+                  path: "/solution/elevatorelvsolutions",
+                },
+                { name: "Audio & Visual Solution", path: "/solution/audio" },
+                {
+                  name: "Surveillance Solutions",
+                  path: "/solution/servalliance",
+                },
+              ].map((item) => (
+                <li key={item.name}>
                   <Link
-                    href={`/${item.toLowerCase()}`}
+                    href={item.path}
                     className="text-gray-400 hover:text-blue-400 transition-colors duration-300"
                   >
-                    {item}
+                    {item.name}
                   </Link>
                 </li>
               ))}
@@ -142,14 +185,14 @@ const Footer = () => {
 
           {/* Resources - Smaller */}
           <div className="text-center sm:text-left">
-            <h3 className="text-sm font-medium text-white mb-2">Resources</h3>
+            <h3 className="text-sm font-medium text-white mb-2">Who We Are</h3>
             <ul className="space-y-1 text-xs">
               <li>
                 <Link
                   href="/certificates"
                   className="text-gray-400 hover:text-blue-400 transition-colors duration-300"
                 >
-                  Certificates
+                  Overview & History
                 </Link>
               </li>
               <li>
@@ -157,31 +200,7 @@ const Footer = () => {
                   href="/terms-of-service"
                   className="text-gray-400 hover:text-blue-400 transition-colors duration-300"
                 >
-                  Terms of Service
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/privacy-policy"
-                  className="text-gray-400 hover:text-blue-400 transition-colors duration-300"
-                >
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/cookie-policy"
-                  className="text-gray-400 hover:text-blue-400 transition-colors duration-300"
-                >
-                  Cookie Policy
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/sitemap.xml"
-                  className="text-gray-400 hover:text-blue-400 transition-colors duration-300"
-                >
-                  Sitemap
+                  Our Company
                 </Link>
               </li>
             </ul>
@@ -192,24 +211,51 @@ const Footer = () => {
             <h3 className="text-sm font-medium text-white mb-2">Contact Us</h3>
             <ul className="space-y-1 text-xs text-gray-400">
               <li className="break-words">
-                <a href="https://www.google.com/maps?q=4-72/2,+Swathi+Building,+3rd+Floor,+Opp.+Singapura+Garden,+1st+Main+Lakshmipura+Road,+Abbigere,+Bengaluru,+Karnataka+560090" 
-                   target="_blank" 
-                   rel="noopener noreferrer"
-                   className="hover:text-blue-400 transition-colors duration-300">
-                  4-72/2, Swathi Building, 3rd Floor, Opp. Singapura Garden, 1st Main Lakshmipura Road, Abbigere, Bengaluru, Karnataka 560090
+                <a
+                  href="https://www.google.com/maps?q=4-72/2,+Swathi+Building,+3rd+Floor,+Opp.+Singapura+Garden,+1st+Main+Lakshmipura+Road,+Abbigere,+Bengaluru,+Karnataka+560090"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-blue-400 transition-colors duration-300"
+                >
+                  4-72/2, Swathi Building, 3rd Floor, Opp. Singapura Garden, 1st
+                  Main Lakshmipura Road, Abbigere, Bengaluru, Karnataka 560090
                 </a>
               </li>
               <li>
-                Email: <a href="mailto:info@lovosis.in" className="hover:text-blue-400 transition-colors duration-300">info@lovosis.in</a>
+                Email:{" "}
+                <a
+                  href="mailto:info@lovosis.in"
+                  className="hover:text-blue-400 transition-colors duration-300"
+                >
+                  info@lovosis.in
+                </a>
               </li>
               <li>
-                Email: <a href="mailto:lovosist@gmail.com" className="hover:text-blue-400 transition-colors duration-300">lovosist@gmail.com</a>
+                Email:{" "}
+                <a
+                  href="mailto:lovosist@gmail.com"
+                  className="hover:text-blue-400 transition-colors duration-300"
+                >
+                  lovosist@gmail.com
+                </a>
               </li>
               <li>
-                Phone: <a href="tel:+917012970281" className="hover:text-blue-400 transition-colors duration-300">+91 7012970281</a>
+                Phone:{" "}
+                <a
+                  href="tel:+917012970281"
+                  className="hover:text-blue-400 transition-colors duration-300"
+                >
+                  +91 7012970281
+                </a>
               </li>
               <li>
-                Phone: <a href="tel:+919747745544" className="hover:text-blue-400 transition-colors duration-300">+91 9747745544</a>
+                Phone:{" "}
+                <a
+                  href="tel:+919747745544"
+                  className="hover:text-blue-400 transition-colors duration-300"
+                >
+                  +91 9747745544
+                </a>
               </li>
             </ul>
           </div>
