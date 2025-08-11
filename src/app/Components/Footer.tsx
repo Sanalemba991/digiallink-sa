@@ -189,7 +189,7 @@ const Footer = () => {
             <ul className="space-y-1 text-xs">
               <li>
                 <Link
-                  href="/certificates"
+                  href="/history"
                   className="text-gray-400 hover:text-blue-400 transition-colors duration-300"
                 >
                   Overview & History
