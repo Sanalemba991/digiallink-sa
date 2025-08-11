@@ -16,7 +16,7 @@ export default function RootLayoutWrapper({
     <>
       {showNavbarFooter && <Navbar />}
       {children}
-      {/* {showNavbarFooter && <Footer />} */}
+      {showNavbarFooter && <Footer />}
     </>
   );
 } 
