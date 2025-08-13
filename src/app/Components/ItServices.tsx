@@ -278,7 +278,7 @@ const slideInRight: Variants = {
                   Digital Link Technology
                 </motion.div>
                 <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight mb-3 md:mb-4 lg:mb-6">
-                  Information Technology and AI Solutions In Dubai
+                  Information Technology and AI <span className='text-blue-500'> Solutions In Dubai</span>
                 </h1>
                 <p className="text-sm md:text-lg lg:text-xl text-gray-300 leading-relaxed">
                   We excel in providing top-notch Information Technology and Artificial Intelligence solutions to businesses across Dubai and the UAE. From cutting-edge app development to AI-driven innovations, partner with us to unlock your business potential.
@@ -428,7 +428,7 @@ const slideInRight: Variants = {
             className="overflow-hidden"
           >
             <motion.div className="text-center mb-8 md:mb-12 overflow-hidden" variants={fadeInUp}>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2 md:mb-4">Our Solutions</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2 md:mb-4">Our <span className='text-blue-500'>Solutions</span></h2>
               <p className="text-lg md:text-xl text-gray-600">Comprehensive IT and AI solutions for businesses across Dubai and the UAE</p>
             </motion.div>
 

@@ -75,10 +75,10 @@ const HomeContact = () => {
         
         <motion.div variants={itemVariants}>
           <Link
-            href="/distributors"
-            className="inline-block border-2 border-white text-white font-semibold py-3 px-8 hover:bg-white hover:text-gray-900 transition-all duration-300 tracking-wider text-sm"
+            href="/contact"
+            className="inline-block border-2 border-white text-white font-semibold py-3 px-8 rounded-xl hover:bg-white hover:text-gray-900 transition-all duration-300 tracking-wider text-sm"
           >
-            Find a Distributor
+          Contact Us
           </Link>
         </motion.div>
       </motion.div>

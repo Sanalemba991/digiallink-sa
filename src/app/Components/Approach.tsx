@@ -123,7 +123,7 @@ const Approach: React.FC = () => {
               }`}
             >
               <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-[1.1] mb-6">
-                <span className="block bg-gradient-to-r from-gray-900 via-blue-900 to-gray-900 bg-clip-text text-transparent">
+                <span className="block t">
                   Our Commitment
                 </span>
                 <span className="block mt-2 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">

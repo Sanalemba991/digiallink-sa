@@ -307,7 +307,7 @@ const slideInRight: Variants = {
                  Our ELV solutions
                 </motion.div>
                 <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight mb-3 md:mb-4 lg:mb-6">
-                 ELV Company In Dubai
+                 ELV Company In <span className="text-blue-500">Dubai</span>
                 </h1>
                 <p className="text-sm md:text-lg lg:text-xl text-gray-300 leading-relaxed">
                  Specializing in Extra Low Voltage (ELV) systems, our company delivers integrated solutions for security, communication, and automation.

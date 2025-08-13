@@ -95,7 +95,7 @@ const PartnersSection = () => {
               className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 tracking-tight"
               variants={itemVariants}
             >
-              We Work With Industry Leaders
+              We Work With <span className="block mt-2 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Industry Leaders</span>
             </motion.h2>
 
             <motion.div className="mb-12" variants={itemVariants}>
@@ -107,14 +107,16 @@ const PartnersSection = () => {
               </p>
             </motion.div>
 
-            <motion.button
-              className="border-2 border-gray-900 text-gray-900 px-8 py-3 font-medium tracking-wide hover:bg-gray-900 hover:text-white transition-colors duration-300"
-              variants={itemVariants}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              VIEW ALL PARTNERS
-            </motion.button>
+           <motion.a
+  href="/partner"
+  className="border-2 border-gray-900 text-gray-900 rounded-xl px-8 py-3 font-medium tracking-wide hover:bg-gray-900 hover:text-white transition-colors duration-300"
+  variants={itemVariants}
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.95 }}
+>
+  VIEW ALL PARTNERS
+</motion.a>
+
           </motion.div>
 
           {/* Right side - Stable rotating Partner logos */}

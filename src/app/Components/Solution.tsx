@@ -279,7 +279,7 @@ const Solutions = () => {
             transition={{ delay: 0.2, duration: 0.6 }}
           >
             Comprehensive{" "}
-            <span className="text-blue-400">Technology Profile</span>
+            <span className="text-blue-600">Technology Profile</span>
           </motion.h1>
           <motion.p
             className="text-lg text-gray-700 mb-4 font-semibold"
@@ -329,7 +329,7 @@ const Solutions = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div className="text-center mb-8 md:mb-12" variants={slideUp}>
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-              Industry-Leading <span className="text-blue-400">Solutions</span>
+              Industry-Leading <span className="text-blue-600">Solutions</span>
             </h2>
             <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
               Specialized technologies for every business need
@@ -385,7 +385,7 @@ const Solutions = () => {
                     onClick={() => handleTabChange(category.id)}
                     className={`inline-flex items-center px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
                       activeTab === category.id
-                        ? "bg-blue-400 text-white shadow-md"
+                        ? "bg-blue-600 text-white shadow-md"
                         : "bg-white text-gray-700 hover:bg-gray-50 border border-gray-200"
                     }`}
                     style={{
@@ -414,7 +414,7 @@ const Solutions = () => {
             {filteredSolutions.length === 1 ? (
               <motion.div
                 key={`single-${activeTab}`}
-                className="relative w-full h-[300px] md:h-[400px] rounded-2xl overflow-hidden mb-8 flex items-center shadow-lg border border-gray-200"
+                className="relative w-full h-[300px] md:h-[600px] rounded-2xl overflow-hidden mb-8 flex items-center shadow-lg border border-gray-200"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
@@ -428,7 +428,7 @@ const Solutions = () => {
                 <div className="absolute inset-0 bg-gray-900/60" />
                 <div className="relative z-10 px-4 md:px-10 py-6 md:py-8 text-white w-full flex flex-col justify-center">
                   <div className="flex flex-col md:flex-row md:items-center mb-3 md:mb-4">
-                    <span className="px-3 py-1 bg-blue-400 text-white text-xs font-semibold rounded-full mb-2 md:mb-0 md:mr-4 w-fit">
+                    <span className="px-3 py-1 bg-blue-600 text-white text-xs font-semibold rounded-full mb-2 md:mb-0 md:mr-4 w-fit">
                       {
                         categories.find(
                           (cat) => cat.id === filteredSolutions[0].category
@@ -452,7 +452,7 @@ const Solutions = () => {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.1 * idx }}
                       >
-                        <CheckCircle className="w-3 h-3 md:w-4 md:h-4 text-green-400 mr-1 md:mr-2" />
+                        <CheckCircle className="w-3 h-3 md:w-4 md:h-4 text-green-600 mr-1 md:mr-2" />
                         <span className="truncate max-w-[120px] md:max-w-none">
                           {feature}
                         </span>
@@ -589,7 +589,7 @@ const Solutions = () => {
                   <motion.div variants={itemVariants} >
                     <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
                       We are committed to{" "}
-                      <span className="block text-blue-400">your strategy</span>
+                      <span className="block text-blue-600">your strategy</span>
                     </h2>
                   </motion.div>
 
@@ -609,7 +609,7 @@ const Solutions = () => {
 
                   <motion.div className="pt-4" variants={itemVariants}>
                     <div className="inline-block">
-                      <h3 className="text-sm font-bold text-gray-900 tracking-wider uppercase border-b-2 border-blue-400 pb-1">
+                      <h3 className="text-sm font-bold text-gray-900 tracking-wider uppercase border-b-2 border-blue-600 pb-1">
                         More about our company
                       </h3>
                     </div>

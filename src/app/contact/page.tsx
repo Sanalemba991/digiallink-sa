@@ -1,7 +1,6 @@
 
 import { Metadata } from "next";
-import PartnersPage from "@/app/Components/PartnersPage";
-
+import Contact from "@/app/Components/Contact";
 export const metadata: Metadata = {
   title: 'Careers at Lovosis Technologies Pvt Ltd | Join Our Team',
   description: 'Explore exciting career opportunities at Lovosis Technologies. Join our innovative team and be part of cutting-edge technology solutions.',
@@ -21,8 +20,8 @@ export const metadata: Metadata = {
 export default function CareersPage() {
   return (
     <>
-<PartnersPage />
+
+<Contact />
         </>
-      
   );
 }

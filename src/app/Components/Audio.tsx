@@ -292,7 +292,7 @@ const Audio = () => {
                   Premium AV Solutions
                 </motion.div>
                 <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight mb-3 md:mb-4 lg:mb-6">
-                  Audio & Visual Solutions Provider In Dubai
+                  Audio & Visual <span className='text-blue-500'>Solutions Provider In Dubai</span>
                 </h1>
                 <p className="text-sm md:text-lg lg:text-xl text-gray-300 leading-relaxed">
                   Enhance your space with premium Audio & Visual Solutions. From immersive sound systems to stunning video displays, we provide tailor-made AV solutions for an unforgettable experience.
@@ -345,7 +345,7 @@ const Audio = () => {
               animate={benefitsInView ? "visible" : "hidden"}
             >
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2 md:mb-4">
-                Why Choose Our AV Solutions?
+                Why Choose Our AV <span className='text-blue-500'>Solutions</span>?
               </h2>
               <p className="text-lg text-gray-600">Your ultimate destination for innovative solutions designed to revolutionize modern infrastructure</p>
             </motion.div>
@@ -418,7 +418,7 @@ const Audio = () => {
               initial="hidden"
               animate={solutionsInView ? "visible" : "hidden"}
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2 md:mb-4">Our Solutions</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2 md:mb-4">Our <span className='text-blue-500'>Solutions</span></h2>
               <p className="text-lg md:text-xl text-gray-600">Comprehensive Audio & Visual Solutions for Various Sectors</p>
             </motion.div>
 

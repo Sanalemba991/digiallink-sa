@@ -178,7 +178,7 @@ const DigitalLinkHistory: React.FC = () => {
             >
               <motion.div variants={fadeInUp}>
                 <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight mb-4 md:mb-6">
-                  Overview and History of Digital Link Technology LLC
+                  Overview and History of <span className='text-blue-500'>Digital Link Technology LLC</span>
                 </h1>
                 <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed">
                   Our unwavering dedication to our clients' success has paid off - we're thrilled to announce that our digital marketing efforts have been recognized with both a nomination and an award.

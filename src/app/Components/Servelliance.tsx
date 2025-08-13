@@ -279,7 +279,7 @@ const slideInRight: Variants = {
                   Our solutions
                 </motion.div>
                 <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight mb-3 md:mb-4 lg:mb-6">
-                  Surveillance Solution Provider In Dubai
+                  Surveillance <span className="text-blue-500">Solution Provider In Dubai</span>
                 </h1>
                 <p className="text-sm md:text-lg lg:text-xl text-gray-300 leading-relaxed">
                   Secure your assets with our advanced Surveillance Solutions.
@@ -373,7 +373,7 @@ const slideInRight: Variants = {
               variants={fadeInUp}
             >
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2 md:mb-4">
-                Our Solutions
+                Our <span className="text-blue-500">Solutions</span>
               </h2>
               <p className="text-lg md:text-xl text-gray-600">
                 Comprehensive IT and AI solutions for businesses across Dubai

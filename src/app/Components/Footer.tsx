@@ -197,7 +197,23 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/terms-of-service"
+                  href="/carrers"
+                  className="text-gray-400 hover:text-blue-400 transition-colors duration-300"
+                >
+                 Carrers
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/awards"
+                  className="text-gray-400 hover:text-blue-400 transition-colors duration-300"
+                >
+                 Awards
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/our-company"
                   className="text-gray-400 hover:text-blue-400 transition-colors duration-300"
                 >
                   Our Company
@@ -208,55 +224,33 @@ const Footer = () => {
 
           {/* Contact - Smaller */}
           <div className="text-center sm:text-left">
-            <h3 className="text-sm font-medium text-white mb-2">Contact Us</h3>
+            <h3 className="text-sm font-medium text-white mb-2">Dubai Office</h3>
             <ul className="space-y-1 text-xs text-gray-400">
               <li className="break-words">
-                <a
-                  href="https://www.google.com/maps?q=4-72/2,+Swathi+Building,+3rd+Floor,+Opp.+Singapura+Garden,+1st+Main+Lakshmipura+Road,+Abbigere,+Bengaluru,+Karnataka+560090"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-blue-400 transition-colors duration-300"
-                >
-                  4-72/2, Swathi Building, 3rd Floor, Opp. Singapura Garden, 1st
-                  Main Lakshmipura Road, Abbigere, Bengaluru, Karnataka 560090
-                </a>
+                Baghlaf Building Shop No.11 Market<br />
+                Satellite Market, Naif, Deira - Dubai United Arab Emirates<br />
+                Dubai United Arab Emirates, P.O.Box: 123241
               </li>
               <li>
                 Email:{" "}
                 <a
-                  href="mailto:info@lovosis.in"
+                  href="mailto:sales@digitallink.ae"
                   className="hover:text-blue-400 transition-colors duration-300"
                 >
-                  info@lovosis.in
+                  sales@digitallink.ae
                 </a>
               </li>
-              <li>
-                Email:{" "}
-                <a
-                  href="mailto:lovosist@gmail.com"
-                  className="hover:text-blue-400 transition-colors duration-300"
-                >
-                  lovosist@gmail.com
-                </a>
-              </li>
+             
               <li>
                 Phone:{" "}
                 <a
-                  href="tel:+917012970281"
+                  href="tel:+971552929644"
                   className="hover:text-blue-400 transition-colors duration-300"
                 >
-                  +91 7012970281
+                  +971 552929644
                 </a>
               </li>
-              <li>
-                Phone:{" "}
-                <a
-                  href="tel:+919747745544"
-                  className="hover:text-blue-400 transition-colors duration-300"
-                >
-                  +91 9747745544
-                </a>
-              </li>
+             
             </ul>
           </div>
         </div>

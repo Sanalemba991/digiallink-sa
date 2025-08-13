@@ -19,28 +19,28 @@ export default function Banner() {
   const banners = [
     {
       image: "/banner/banner.jpg",
-      title: "In it for the long haul!",
+      title: <>In it for <span style={{ color: '#3A55E8' }}>the long haul! section</span></>,
       description: "We want to build a relationship, not just a customer base.",
       link: "/digital",
       buttonText: "LEARN MORE"
     },
     {
       image: "/banner/banner (1).jpg",
-      title: "Premium Home Services",
+      title: <>Premium <span style={{ color: '#3A55E8' }}>Home Services</span></>,
       description: "Excellence in every detail for your modern home needs.",
       link: "/home",
       buttonText: "DISCOVER MORE"
     },
     {
       image: "/banner/banner (2).jpg",
-      title: "Quality Products",
+      title: <>Quality  <span style={{ color: '#3A55E8' }}>Products</span></>,
       description: "High-quality products designed for lasting excellence.",
       link: "/products",
       buttonText: "VIEW PRODUCTS"
     },
     {
       image: "/banner/banner (3).jpg",
-      title: "Professional Team",
+      title: <>Professional  <span style={{ color: '#3A55E8' }}>Team</span></>,
       description: "Get in touch with our dedicated professional team.",
       link: "/contact",
       buttonText: "CONTACT NOW"
@@ -180,7 +180,7 @@ export default function Banner() {
                 <motion.div variants={buttonVariants}>
                   <Link
                     href={banners[currentImageIndex].link}
-                    className="inline-block border-2 border-white text-white font-semibold py-3 px-8 hover:bg-white hover:text-gray-900 transition-all duration-300 tracking-wider text-sm"
+                    className="inline-block border-2 rounded-xl border-white text-white font-semibold py-3 px-8 hover:bg-white hover:text-gray-900 transition-all duration-300 tracking-wider text-sm"
                   >
                     {banners[currentImageIndex].buttonText}
                   </Link>
