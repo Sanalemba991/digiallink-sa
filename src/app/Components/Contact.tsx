@@ -19,7 +19,12 @@ export default function Contact() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const contactRef = useRef(null);
+  const followUsRef = useRef(null);
+  const findUsRef = useRef(null);
+  
   const isInView = useInView(contactRef, { once: true, margin: "-100px" });
+  const isFollowUsInView = useInView(followUsRef, { once: true, margin: "-100px" });
+  const isFindUsInView = useInView(findUsRef, { once: true, margin: "-100px" });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -88,189 +93,51 @@ export default function Contact() {
     }));
   };
 
+  // Social media icons data
+  const socialIcons = [
+    { 
+      icon: <FaFacebook className="text-2xl" />,
+      href: "https://www.facebook.com/lovosistech",
+      color: "bg-blue-600",
+      label: "Facebook"
+    },
+    { 
+      icon: <FaTwitter className="text-2xl" />,
+      href: "https://twitter.com/lovosistech",
+      color: "bg-blue-400",
+      label: "Twitter"
+    },
+    { 
+      icon: <FaInstagram className="text-2xl" />,
+      href: "https://www.instagram.com/lovosis_technology_private_ltd",
+      color: "bg-pink-600",
+      label: "Instagram"
+    },
+    { 
+      icon: <FaLinkedinIn className="text-2xl" />,
+      href: "https://www.linkedin.com/company/lovosis-technology-private-limited",
+      color: "bg-blue-700",
+      label: "LinkedIn"
+    },
+    { 
+      icon: <FaYoutube className="text-2xl" />,
+      href: "https://www.youtube.com/@LovosisTechnology",
+      color: "bg-red-600",
+      label: "YouTube"
+    },
+    { 
+      icon: <PiThreadsLogoFill className="text-2xl" />,
+      href: "https://www.threads.net/@lovosis_technology_private_ltd",
+      color: "bg-black",
+      label: "Threads"
+    }
+  ];
+
   return (
     <div className="w-full bg-gray-50">
       <Toaster position="top-right" />
-      {/* Banner Section */}
-      <section 
-        className="relative min-h-screen flex items-center justify-center overflow-hidden"
-        aria-label="Contact Us"
-      >
-        {/* Banner Background with Gradient Overlay */}
-        <div className="absolute inset-0 z-0">
-          {/* Primary banner image */}
-          <div className="absolute inset-0">
-            <Image
-              src="/banner/Banner.jpg"
-              alt="Contact Lovosis Technology"
-              fill
-              className="object-cover object-center"
-              priority
-              quality={90}
-              sizes="100vw"
-            />
-          </div>
-          {/* Gradient overlay for better text readability */}
-          <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-sky-900/60"></div>
-        </div>
-        {/* Animated background elements */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.1 }}
-          transition={{ duration: 2, ease: "easeOut" }}
-          className="absolute inset-0 z-10"
-        >
-          {/* Tech grid pattern overlay */}
-          <div 
-            className="absolute inset-0 opacity-20"
-            style={{
-              backgroundImage: `
-                linear-gradient(rgba(6, 182, 212, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(6, 182, 212, 0.1) 1px, transparent 1px)
-              `,
-              backgroundSize: '50px 50px'
-            }}
-            aria-hidden="true"
-          />
-        </motion.div>
-        {/* Content */}
-        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 w-full">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial="hidden"
-              animate="visible"
-              variants={{
-                hidden: { opacity: 0 },
-                visible: {
-                  opacity: 1,
-                  transition: {
-                    staggerChildren: 0.3,
-                    delayChildren: 0.4,
-                    ease: "easeOut",
-                    duration: 0.8
-                  }
-                }
-              }}
-              className="text-white px-4 sm:px-0 text-center lg:text-left"
-            >
-              <motion.h1 
-                variants={{
-                  hidden: { opacity: 0, y: 30 },
-                  visible: { 
-                    opacity: 1, 
-                    y: 0,
-                    transition: {
-                      duration: 1,
-                      ease: [0.22, 1, 0.36, 1]
-                    }
-                  }
-                }}
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light mb-6 md:mb-8 leading-tight"
-              >
-                Get in <span className="text-blue-400 drop-shadow-lg">Touch</span>
-              </motion.h1>
-              <motion.p 
-                variants={{
-                  hidden: { opacity: 0, y: 30 },
-                  visible: { 
-                    opacity: 1, 
-                    y: 0,
-                    transition: {
-                      duration: 1,
-                      ease: [0.22, 1, 0.36, 1]
-                    }
-                  }
-                }}
-                className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-100 mb-6 md:mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0 drop-shadow-md"
-              >
-                Let's discuss how we can help transform your business with our technology solutions.
-              </motion.p>
-            </motion.div>
-          </div>
-        </div>
-        {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.5, duration: 0.8 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
-        >
-          <div className="animate-bounce flex flex-col items-center">
-            <span className="text-sm text-gray-200 mb-2 drop-shadow-md">Contact Us</span>
-            <svg className="w-6 h-6 text-gray-200 drop-shadow-md" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
-          </div>
-        </motion.div>
-      </section>
-      {/* Follow Us Section */}
-      <div className="bg-white py-12">
-        <div className="container mx-auto px-4 max-w-7xl">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">Follow Us</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Stay connected with us on social media for the latest updates, news, and offers.
-            </p>
-          </div>
-          <div className="flex justify-center gap-8 flex-wrap">
-            <a 
-              href="https://www.facebook.com/lovosistech" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="bg-gray-100 hover:bg-blue-600 hover:text-white p-4 rounded-full transition-all duration-300"
-              aria-label="Facebook"
-            >
-              <FaFacebook className="text-2xl text-blue-600 hover:text-white" />
-            </a>
-            <a 
-              href="https://twitter.com/lovosistech" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="bg-gray-100 hover:bg-blue-400 hover:text-white p-4 rounded-full transition-all duration-300"
-              aria-label="Twitter"
-            >
-              <FaTwitter className="text-2xl text-blue-400 hover:text-white" />
-            </a>
-            <a 
-              href="https://www.instagram.com/lovosis_technology_private_ltd" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="bg-gray-100 hover:bg-pink-600 hover:text-white p-4 rounded-full transition-all duration-300"
-              aria-label="Instagram"
-            >
-              <FaInstagram className="text-2xl text-pink-600 hover:text-white" />
-            </a>
-            <a 
-              href="https://www.linkedin.com/company/lovosis-technology-private-limited" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="bg-gray-100 hover:bg-blue-700 hover:text-white p-4 rounded-full transition-all duration-300"
-              aria-label="LinkedIn"
-            >
-              <FaLinkedinIn className="text-2xl text-blue-700 hover:text-white" />
-            </a>
-            <a 
-              href="https://www.youtube.com/@LovosisTechnology" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="bg-gray-100 hover:bg-red-600 hover:text-white p-4 rounded-full transition-all duration-300"
-              aria-label="YouTube"
-            >
-              <FaYoutube className="text-2xl text-red-600 hover:text-white" />
-            </a>
-            <a 
-              href="https://www.threads.net/@lovosis_technology_private_ltd" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="bg-gray-100 hover:bg-black hover:text-white p-4 rounded-full transition-all duration-300"
-              aria-label="Threads"
-            >
-              <PiThreadsLogoFill className="text-2xl text-black hover:text-white" />
-            </a>
-          </div>
-        </div>
-      </div>
-      {/* Enhanced Contact Form Section */}
+      
+      {/* Contact Form Section */}
       <section className="py-16 bg-white" id="contact-form" ref={contactRef}>
         <div className="container mx-auto px-6 lg:px-8 max-w-6xl">
           <div className="text-center mb-12">
@@ -521,8 +388,97 @@ export default function Contact() {
           </motion.div>
         </div>
       </section>
-      {/* Map Section */}
-      <section className="bg-white w-full">
+
+      {/* Spacer between sections */}
+      
+
+      {/* Follow Us Section */}
+      <section className="py-16 bg-white" ref={followUsRef}>
+        <div className="container mx-auto px-4 max-w-7xl">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={isFollowUsInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={isFollowUsInView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ delay: 0.1, duration: 0.5 }}
+              className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-600 rounded-full text-sm font-medium mb-6"
+            >
+              <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"/>
+              </svg>
+              Social Connections
+            </motion.div>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              animate={isFollowUsInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.2, duration: 0.5 }}
+              className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4"
+            >
+              Follow <span className="text-blue-500">Us</span>
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={isFollowUsInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.3, duration: 0.5 }}
+              className="text-lg text-gray-600 max-w-2xl mx-auto"
+            >
+              Stay connected with us on social media for the latest updates, news, and offers.
+            </motion.p>
+          </motion.div>
+          
+          <motion.div
+            initial="hidden"
+            animate={isFollowUsInView ? "visible" : "hidden"}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.1,
+                  delayChildren: 0.4,
+                },
+              },
+            }}
+            className="flex justify-center gap-6 flex-wrap"
+          >
+            {socialIcons.map((social, index) => (
+              <motion.a
+                key={index}
+                variants={{
+                  hidden: { opacity: 0, scale: 0.8 },
+                  visible: { 
+                    opacity: 1, 
+                    scale: 1,
+                    transition: {
+                      type: "spring",
+                      stiffness: 200,
+                      damping: 10
+                    }
+                  },
+                }}
+                whileHover={{ y: -5, scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`bg-gray-100 hover:${social.color} p-5 rounded-full transition-all duration-300 hover:text-white`}
+                aria-label={social.label}
+              >
+                {social.icon}
+              </motion.a>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+     
+
+      {/* Find Us Section */}
+     <section className="bg-white w-full">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -548,7 +504,7 @@ export default function Contact() {
                 transition={{ delay: 0.3, duration: 0.5 }}
                 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6"
               >
-                Find Us in <span className="text-sky-400">Dubai</span>
+                Find Us in <span className="text-blue-500">Dubai</span>
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}

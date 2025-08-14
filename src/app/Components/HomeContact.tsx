@@ -62,7 +62,7 @@ const HomeContact = () => {
           className="text-4xl md:text-5xl font-bold text-white mb-6"
           variants={itemVariants}
         >
-          Where to Buy
+          Where to <span className='text-blue-500'>Buy</span>
         </motion.h2>
         
         <motion.p 

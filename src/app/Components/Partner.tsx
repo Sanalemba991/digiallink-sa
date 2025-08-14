@@ -109,7 +109,7 @@ const PartnersSection = () => {
 
            <motion.a
   href="/partner"
-  className="border-2 border-gray-900 text-gray-900 rounded-xl px-8 py-3 font-medium tracking-wide hover:bg-gray-900 hover:text-white transition-colors duration-300"
+  className="border-2 border-blue-500 text-blue-500 rounded-xl px-8 py-3 font-medium tracking-wide hover:bg-blue-500 hover:text-white transition-colors duration-300"
   variants={itemVariants}
   whileHover={{ scale: 1.05 }}
   whileTap={{ scale: 0.95 }}
