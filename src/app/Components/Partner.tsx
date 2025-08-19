@@ -121,7 +121,7 @@ const PartnersSection = () => {
 
           {/* Right side - Stable rotating Partner logos */}
           <div className="md:w-1/2 flex items-center justify-center">
-            <div className="relative w-[450px] h-[450px] flex items-center justify-center">
+            <div className="relative w-[320px] h-[320px] md:w-[450px] md:h-[450px] flex items-center justify-center">
               {/* Rotating container for partner logos */}
               <motion.div
                 className="absolute w-full h-full"
@@ -134,14 +134,15 @@ const PartnersSection = () => {
               >
                 {partners.map((partner, index) => {
                   const angle = (index * (2 * Math.PI)) / partners.length;
-                  const radius = 180;
+                  // Reduce radius for mobile
+                  const radius = typeof window !== "undefined" && window.innerWidth < 768 ? 120 : 180;
                   const x = Math.cos(angle) * radius;
                   const y = Math.sin(angle) * radius;
 
                   return (
                     <motion.div
                       key={partner.name}
-                      className="absolute w-20 h-20 bg-white rounded-2xl shadow-lg flex items-center justify-center p-3 hover:shadow-xl hover:scale-105 transition-all duration-500 border-2 border-gray-50"
+                      className="absolute w-14 h-14 md:w-20 md:h-20 bg-white rounded-2xl shadow-lg flex items-center justify-center p-2 md:p-3 hover:shadow-xl hover:scale-105 transition-all duration-500 border-2 border-gray-50"
                       style={{
                         left: `50%`,
                         top: `50%`,
@@ -162,9 +163,9 @@ const PartnersSection = () => {
                         <Image
                           src={partner.imagePath}
                           alt={partner.name}
-                          width={48}
-                          height={48}
-                          className="object-contain"
+                          width={36}
+                          height={36}
+                          className="object-contain md:w-12 md:h-12 w-9 h-9"
                           loading="lazy"
                         />
                       </motion.div>
@@ -175,7 +176,7 @@ const PartnersSection = () => {
 
               {/* Center piece with typewriter effect - MOVED OUTSIDE rotating container */}
               <motion.div
-                className="absolute inset-0 w-48 h-48 bg-transparent rounded-full flex flex-col items-center justify-center z-20 m-auto"
+                className="absolute inset-0 w-28 h-28 md:w-48 md:h-48 bg-transparent rounded-full flex flex-col items-center justify-center z-20 m-auto"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true, margin: "-100px" }}
@@ -183,7 +184,7 @@ const PartnersSection = () => {
               >
                 <div className="text-center">
                   <motion.div
-                    className="text-2xl font-bold text-gray-900 tracking-wide mb-2 min-h-[90px] flex flex-col items-center justify-center"
+                    className="text-lg md:text-2xl font-bold text-gray-900 tracking-wide mb-2 min-h-[60px] md:min-h-[90px] flex flex-col items-center justify-center"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
@@ -198,7 +199,7 @@ const PartnersSection = () => {
                       <>
                         <div className="mb-1">OUR</div>
                         <div className="mb-2">PARTNERS</div>
-                        <p className="text-xs text-gray-700 leading-relaxed px-3">
+                        <p className="text-xs text-gray-700 leading-relaxed px-1 md:px-3">
                           {displayText}
                           <span className="animate-pulse">|</span>
                         </p>
