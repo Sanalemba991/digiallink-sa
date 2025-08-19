@@ -39,7 +39,7 @@ export default function Banner() {
       buttonText: "VIEW PRODUCTS"
     },
     {
-      image: "/banner/banner (3).jpg",
+      image: "/banner/Contact 1.png",
       title: <>Professional  <span style={{ color: '#3A55E8' }}>Team</span></>,
       description: "Get in touch with our dedicated professional team.",
       link: "/contact",

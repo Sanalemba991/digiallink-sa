@@ -218,10 +218,7 @@ const DigitalLinkHistory: React.FC = () => {
         {/* Timeline Section */}
         <section className="py-12 md:py-16 lg:py-24 bg-white relative mb-10">
           <div className="container mx-auto px-4 sm:px-6">
-            {/* Mobile timeline line */}
-            <div className="absolute left-6 sm:left-8 md:hidden w-1 h-full top-0 bg-gray-200"></div>
-
-            {/* Desktop timeline line */}
+            {/* Desktop timeline line - hidden on mobile */}
             <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full top-0 w-[2px] bg-gray-200">
               <div className="sticky top-1/2 w-full h-full">
                 <div className="absolute w-full h-full bg-gray-200 origin-top" />
@@ -252,10 +249,10 @@ const DigitalLinkHistory: React.FC = () => {
                     }
                   }}
                 >
-                  {/* Timeline dot */}
-                  <div className={`absolute ${index % 2 === 0 ? 'md:left-1/2' : 'md:left-1/2'} left-6 sm:left-8 md:left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10`}>
+                  {/* Timeline dot - hidden on mobile */}
+                  <div className="hidden md:block absolute md:left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
                     <motion.div
-                      className={`w-5 h-5 md:w-6 md:h-6 rounded-full border-4 ${
+                      className={`w-6 h-6 rounded-full border-4 ${
                         activeItems[index] ? 'bg-blue-600 border-blue-200' : 'bg-gray-200 border-gray-300'
                       }`}
                       animate={{
@@ -334,11 +331,13 @@ const DigitalLinkHistory: React.FC = () => {
                     variants={{
                       hidden: { 
                         opacity: 0, 
-                        x: index % 2 === 0 ? 100 : -100
+                        // Disable x animation on mobile, only use y
+                        y: 50
                       },
                       visible: { 
                         opacity: 1, 
-                        x: 0,
+                        // Disable x animation on mobile, only use y
+                        y: 0,
                         transition: {
                           duration: 1.5,
                           ease: "easeInOut",
