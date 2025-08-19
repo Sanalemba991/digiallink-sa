@@ -4,9 +4,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
-import { BrainCog, Cable, Video, ShieldCheck, ChevronDown, Mail, Phone } from 'lucide-react';
+import { BrainCog, Cable, Video, ShieldCheck, ChevronDown, Mail, Phone, ChevronRight } from 'lucide-react';
 
-// Custom CSS for animations (now properly scoped)
 const useNavbarStyles = () => {
   useEffect(() => {
     const styleElement = document.createElement('style');
@@ -45,13 +44,12 @@ const useNavbarStyles = () => {
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showSolutionDropdown, setShowSolutionDropdown] = useState(false);
-  const [showMobileSolutionDropdown, setShowMobileSolutionDropdown] = useState(false);
+  const [showMobileSolutionPages, setShowMobileSolutionPages] = useState(false);
   const [closeTimeout, setCloseTimeout] = useState<NodeJS.Timeout | null>(null);
   const [isMounted, setIsMounted] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
 
-  // Inject styles on client side only
   useNavbarStyles();
 
   useEffect(() => {
@@ -63,15 +61,15 @@ export default function Navbar() {
 
   useEffect(() => {
     setShowSolutionDropdown(false);
-    setShowMobileSolutionDropdown(false);
+    setShowMobileSolutionPages(false);
   }, [pathname]);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  const toggleMobileSolutionDropdown = () => {
-    setShowMobileSolutionDropdown(!showMobileSolutionDropdown);
+  const toggleMobileSolutionPages = () => {
+    setShowMobileSolutionPages(!showMobileSolutionPages);
   };
 
   const navItems = [
@@ -125,7 +123,6 @@ export default function Navbar() {
     setShowSolutionDropdown(true);
   };
 
-  // Animation classes only applied after mount
   const getAnimationClass = () => isMounted ? 'animate-fade-in' : '';
   const getItemAnimationClass = (index: number) => 
     isMounted ? `animate-scale-in` : '';
@@ -316,69 +313,79 @@ export default function Navbar() {
         <div className="lg:hidden">
           <div className={`px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white/95 backdrop-blur-md border-t border-gray-200/50 ${getAnimationClass()}`}>
             {/* Navigation Items */}
-            {navItems.map((item) =>
-              item.href === '/solution' ? (
-                <div key={item.href}>
-                  <button
-                    onClick={toggleMobileSolutionDropdown}
-                    className={`flex items-center justify-between w-full px-4 py-2.5 rounded-lg text-sm font-medium tracking-wide transition-all duration-500 ease-in-out relative overflow-hidden ${
-                      pathname.startsWith('/solution')
-                        ? 'text-blue-600 bg-blue-50/80 border-l-4 border-blue-500'
-                        : 'text-gray-700 hover:text-gray-900 hover:bg-gray-100/50'
-                    }`}
-                  >
-                    <span className="relative z-10">{item.label}</span>
-                    <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${
-                      showMobileSolutionDropdown ? 'text-blue-600 rotate-180' : 'text-gray-500'
-                    }`} />
-                  </button>
-                  
-                  {showMobileSolutionDropdown && (
-                    <div className="pl-4 mt-2 space-y-2">
-                      {solutionDropdownItems.map((dropdown, index) => {
-                        const IconComponent = dropdown.icon;
-                        return (
-                          <Link
-                            key={dropdown.href}
-                            href={dropdown.href}
-                            className={`flex items-center space-x-3 px-4 py-3 text-sm rounded-lg font-medium transition-all duration-300 ${
-                              pathname === dropdown.href 
-                                ? 'text-blue-600 bg-blue-50 border-l-4 border-blue-500' 
-                                : 'text-gray-700 hover:bg-gray-100'
-                            } ${getItemAnimationClass(index)}`}
-                            style={isMounted ? { animationDelay: `${index * 100}ms` } : {}}
-                            onClick={() => {
-                              toggleMobileMenu();
-                              setShowMobileSolutionDropdown(false);
-                            }}
-                          >
-                            <IconComponent className="w-5 h-5" />
-                            <div>
-                              <div className="font-medium">{dropdown.label}</div>
-                              <div className="text-xs text-gray-500">{dropdown.description}</div>
-                            </div>
-                          </Link>
-                        );
-                      })}
-                    </div>
-                  )}
-                </div>
-              ) : (
-                <MobileNavLink
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => {
-                    toggleMobileMenu();
-                    setShowMobileSolutionDropdown(false);
-                  }}
-                  isActive={pathname === item.href}
+            {!showMobileSolutionPages ? (
+              <>
+                {navItems.map((item) =>
+                  item.href === '/solution' ? (
+                    <button
+                      key={item.href}
+                      onClick={toggleMobileSolutionPages}
+                      className={`flex items-center justify-between w-full px-4 py-2.5 rounded-lg text-sm font-medium tracking-wide transition-all duration-500 ease-in-out relative overflow-hidden ${
+                        pathname.startsWith('/solution')
+                          ? 'text-blue-600 bg-blue-50/80 border-l-4 border-blue-500'
+                          : 'text-gray-700 hover:text-gray-900 hover:bg-gray-100/50'
+                      }`}
+                    >
+                      <span className="relative z-10">{item.label}</span>
+                      <ChevronRight className="w-4 h-4 text-gray-500" />
+                    </button>
+                  ) : (
+                    <MobileNavLink
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => {
+                        toggleMobileMenu();
+                        setShowMobileSolutionPages(false);
+                      }}
+                      isActive={pathname === item.href}
+                    >
+                      {item.label}
+                    </MobileNavLink>
+                  )
+                )}
+              </>
+            ) : (
+              <>
+                <button
+                  onClick={toggleMobileSolutionPages}
+                  className="flex items-center px-4 py-2.5 rounded-lg text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-all duration-500 ease-in-out"
                 >
-                  {item.label}
-                </MobileNavLink>
-              )
+                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                  </svg>
+                  Back to Menu
+                </button>
+                
+                {solutionDropdownItems.map((dropdown, index) => {
+                  const IconComponent = dropdown.icon;
+                  return (
+                    <Link
+                      key={dropdown.href}
+                      href={dropdown.href}
+                      className={`flex items-center space-x-3 px-4 py-3 text-sm rounded-lg font-medium transition-all duration-300 ${
+                        pathname === dropdown.href 
+                          ? 'text-blue-600 bg-blue-50 border-l-4 border-blue-500' 
+                          : 'text-gray-700 hover:bg-gray-100'
+                      } ${getItemAnimationClass(index)}`}
+                      style={isMounted ? { animationDelay: `${index * 100}ms` } : {}}
+                      onClick={() => {
+                        toggleMobileMenu();
+                        setShowMobileSolutionPages(false);
+                      }}
+                    >
+                      <IconComponent className="w-5 h-5" />
+                      <div>
+                        <div className="font-medium">{dropdown.label}</div>
+                        <div className="text-xs text-gray-500">{dropdown.description}</div>
+                      </div>
+                      <ChevronRight className="w-4 h-4 ml-auto text-gray-400" />
+                    </Link>
+                  );
+                })}
+              </>
             )}
 
-            {/* Contact Info for Mobile - Moved to the end */}
+            {/* Contact Info for Mobile */}
             <div className="px-4 py-3 space-y-2 mt-4 bg-gray-50 rounded-lg">
               <Link
                 href="mailto:sales@digitallink.ae"
@@ -472,7 +479,7 @@ function MobileNavLink({
     >
       <span className="relative z-10">{children}</span>
       {hasDropdown && (
-        <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isActive ? 'text-blue-600 rotate-180' : 'text-gray-500'}`} />
+        <ChevronRight className={`w-4 h-4 ${isActive ? 'text-blue-600' : 'text-gray-500'}`} />
       )}
       {isActive && (
         <div className="absolute inset-0 bg-gradient-to-r from-blue-50/50 to-blue-100/50"></div>
