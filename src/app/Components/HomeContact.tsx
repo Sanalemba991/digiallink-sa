@@ -62,15 +62,14 @@ const HomeContact = () => {
           className="text-4xl md:text-5xl font-bold text-white mb-6"
           variants={itemVariants}
         >
-          Where to <span className='text-blue-500'>Buy</span>
+          Where to <span className='text-blue-500'>Connect</span>
         </motion.h2>
         
         <motion.p 
           className="text-gray-300 text-lg md:text-xl mb-8 max-w-2xl mx-auto leading-relaxed"
           variants={itemVariants}
         >
-          Connect with local distributors to get genuine Hikvision products, expert advice, and
-          reliable after-sales support.
+          Connect with local distributors to get genuine products, expert advice, and reliable after-sales support.
         </motion.p>
         
         <motion.div variants={itemVariants}>
