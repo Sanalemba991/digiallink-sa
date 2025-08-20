@@ -12,25 +12,8 @@ const PartnersSection = () => {
   const [displayText, setDisplayText] = useState("");
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
 
   const texts = ["OUR", "PARTNERS", "TRUSTED BY INDUSTRY LEADERS WORLDWIDE"];
-
-  // Handle responsive detection properly
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    
-    // Set initial value
-    handleResize();
-    
-    // Add event listener
-    window.addEventListener('resize', handleResize);
-    
-    // Cleanup
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
   useEffect(() => {
     const currentFullText = texts[currentTextIndex];
@@ -151,8 +134,8 @@ const PartnersSection = () => {
               >
                 {partners.map((partner, index) => {
                   const angle = (index * (2 * Math.PI)) / partners.length;
-                  // Use state instead of window object for mobile detection
-                  const radius = isMobile ? 120 : 180;
+                  // Reduce radius for mobile
+                  const radius = typeof window !== "undefined" && window.innerWidth < 768 ? 120 : 180;
                   const x = Math.cos(angle) * radius;
                   const y = Math.sin(angle) * radius;
 
@@ -179,24 +162,22 @@ const PartnersSection = () => {
                       >
                         <Image
                           src={partner.imagePath}
-                          alt={`${partner.name} logo`}
+                          alt={partner.name}
                           width={36}
                           height={36}
                           className="object-contain md:w-12 md:h-12 w-9 h-9"
                           loading="lazy"
-                          unoptimized={true} // Add this to bypass Next.js image optimization issues
-                          onError={(e) => {
-                            console.error(`Failed to load image: ${partner.imagePath}`);
-                            // Optional: Set a fallback image
-                            const target = e.target as HTMLImageElement;
-                            target.src = '/fallback-logo.png'; // Make sure you have this fallback image
-                          }}
+                          // Add unoptimized if external domains are not configured
+                          
                         />
                       </motion.div>
                     </motion.div>
                   );
                 })}
               </motion.div>
+
+              {/* Center piece with typewriter effect */}
+
             </div>
           </div>
         </div>
