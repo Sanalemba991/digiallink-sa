@@ -167,6 +167,18 @@ const PartnersSection = () => {
                           height={36}
                           className="object-contain md:w-12 md:h-12 w-9 h-9"
                           loading="lazy"
+                          // Add unoptimized if external domains are not configured
+                          unoptimized={process.env.NODE_ENV !== "production"}
+                          onError={(e) => {
+                            // Fallback for broken images
+                            const target = e.target as HTMLImageElement;
+                            target.style.display = 'none';
+                            target.parentElement!.innerHTML = `
+                              <div class="flex items-center justify-center w-full h-full text-xs font-medium text-gray-500">
+                                ${partner.name}
+                              </div>
+                            `;
+                          }}
                         />
                       </motion.div>
                     </motion.div>
@@ -174,8 +186,8 @@ const PartnersSection = () => {
                 })}
               </motion.div>
 
-              {/* Center piece with typewriter effect - MOVED OUTSIDE rotating container */}
-              
+              {/* Center piece with typewriter effect */}
+             
             </div>
           </div>
         </div>
