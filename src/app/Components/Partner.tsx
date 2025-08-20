@@ -45,12 +45,12 @@ const PartnersSection = () => {
 
   const partners: Partner[] = [
     { name: "UNV", logoType: "image", imagePath: "/details/unv.png" },
-    { name: "Toshiba", logoType: "image", imagePath: "/details/unv.png" },
+    { name: "Toshiba", logoType: "image", imagePath: "/details/toshiba.png" },
     { name: "Imou", logoType: "image", imagePath: "/details/imou.png" },
     { name: "Ewind", logoType: "image", imagePath: "/details/ewind.png" },
     { name: "Dahua", logoType: "image", imagePath: "/details/dahua.png" },
-    { name: "Hikvision", logoType: "image", imagePath: "/details/unv.png" },
-    { name: "Uniarch", logoType: "image", imagePath: "/details/unv.png" },
+    { name: "Hikvision", logoType: "image", imagePath: "/details/hikvision.png" },
+    { name: "Uniarch", logoType: "image", imagePath: "/details/uniarch.png" },
   ];
 
   // Animation variants for the left content area
