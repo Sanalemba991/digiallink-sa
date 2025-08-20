@@ -223,57 +223,50 @@ const Footer = () => {
           </div>
 
           {/* Contact - Smaller */}
-          <div className="text-center sm:text-left">
+          <div className="text-center">
             <h3 className="text-sm font-medium text-white mb-2">Office</h3>
-
             <ul className="space-y-3 text-xs text-gray-400">
               {/* Location with clickable map icon */}
-              <li className="flex items-start gap-2">
-
-                <div className="flex-1">
-                  <span className="block"></span>
-                  <button
-                    onClick={() => {
-                      const encodedAddress = encodeURIComponent("Olaya Street, Riyadh, Saudi Arabia");
-                      const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
-                      window.open(googleMapsUrl, '_blank');
-                    }}
-                    className="inline-flex items-center gap-1 mt-1  hover:text-blue-300 transition-colors duration-300 group"
-                  >
-                    <MapPin className="w-4 h-4 text-blue-400 mt-0.5 flex-shrink-0" />
-                    <span className="text-xs hover:text-blue-500 group-hover:no-underline cursor-pointer">
-                      Olaya Street, Riyadh, Saudi Arabia
-                    </span>
-                  </button>
-                </div>
+              <li className="flex justify-center">
+                <button
+                  onClick={() => {
+                    const encodedAddress = encodeURIComponent("Olaya Street, Riyadh, Saudi Arabia");
+                    const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
+                    window.open(googleMapsUrl, '_blank');
+                  }}
+                  className="inline-flex items-center gap-2 hover:text-blue-300 transition-colors duration-300 group"
+                >
+                  <MapPin className="w-4 h-4 text-blue-400 flex-shrink-0" />
+                  <span className="text-xs hover:text-blue-500 group-hover:no-underline cursor-pointer">
+                    Olaya Street, Riyadh, Saudi Arabia
+                  </span>
+                </button>
               </li>
 
               {/* Email */}
-              <li className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-blue-400 flex-shrink-0" />
-                <span>
-                  Email:{" "}
-                  <a
-                    href="mailto:sales@digitallink-sa.com"
-                    className="hover:text-blue-400 transition-colors duration-300"
-                  >
+              <li className="flex justify-center">
+                <a
+                  href="mailto:sales@digitallink-sa.com"
+                  className="inline-flex items-center gap-2 hover:text-blue-300 transition-colors duration-300 group"
+                >
+                  <Mail className="w-4 h-4 text-blue-400 flex-shrink-0" />
+                  <span className="text-xs hover:text-blue-500 group-hover:no-underline cursor-pointer">
                     sales@digitallink-sa.com
-                  </a>
-                </span>
+                  </span>
+                </a>
               </li>
 
               {/* Phone */}
-              <li className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-blue-400 flex-shrink-0" />
-                <span>
-                  Phone:{" "}
-                  <a
-                    href="tel:+966597015415"
-                    className="hover:text-blue-400 transition-colors duration-300"
-                  >
+              <li className="flex justify-center">
+                <a
+                  href="tel:+966597015415"
+                  className="inline-flex items-center gap-2 hover:text-blue-300 transition-colors duration-300 group"
+                >
+                  <Phone className="w-4 h-4 text-blue-400 flex-shrink-0" />
+                  <span className="text-xs hover:text-blue-500 group-hover:no-underline cursor-pointer">
                     +966 59 701 5415
-                  </a>
-                </span>
+                  </span>
+                </a>
               </li>
             </ul>
           </div>
