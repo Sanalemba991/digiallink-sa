@@ -9,6 +9,7 @@ import {
   faThreads,
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
+import { MapPin, Mail, Phone } from "lucide-react";
 
 const Footer = () => {
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
@@ -72,7 +73,7 @@ const Footer = () => {
     <footer className="bg-black text-white">
       <div className="max-w-7xl mx-auto px-2 sm:px-4 py-4 sm:py-6">
         {/* Newsletter - Smaller */}
-        <div className="mb-4 sm:mb-6">
+        <div className="mb-8 sm:mb-12 lg:mb-16">
           <div className="max-w-lg mx-auto text-center px-2">
             <h3 className="text-sm sm:text-base font-medium text-white mb-1">
               Subscribe to our Newsletter
@@ -102,9 +103,8 @@ const Footer = () => {
             </form>
             {message && (
               <p
-                className={`mt-1 text-xs ${
-                  status === "success" ? "text-green-400" : "text-red-400"
-                }`}
+                className={`mt-1 text-xs ${status === "success" ? "text-green-400" : "text-red-400"
+                  }`}
               >
                 {message}
               </p>
@@ -200,7 +200,7 @@ const Footer = () => {
                   href="/careers"
                   className="text-gray-400 hover:text-blue-400 transition-colors duration-300"
                 >
-                 Careers
+                  Careers
                 </Link>
               </li>
               <li>
@@ -208,7 +208,7 @@ const Footer = () => {
                   href="/awards"
                   className="text-gray-400 hover:text-blue-400 transition-colors duration-300"
                 >
-                 Awards
+                  Awards
                 </Link>
               </li>
               <li>
@@ -224,37 +224,61 @@ const Footer = () => {
 
           {/* Contact - Smaller */}
           <div className="text-center sm:text-left">
-            <h3 className="text-sm font-medium text-white mb-2">Dubai Office</h3>
-            <ul className="space-y-1 text-xs text-gray-400">
-              <li className="break-words">
-                Baghlaf Building Shop No.11 Market<br />
-                Satellite Market, Naif, Deira - Dubai United Arab Emirates<br />
-                Dubai United Arab Emirates, P.O.Box: 123241
+            <h3 className="text-sm font-medium text-white mb-2">Office</h3>
+
+            <ul className="space-y-3 text-xs text-gray-400">
+              {/* Location with clickable map icon */}
+              <li className="flex items-start gap-2">
+
+                <div className="flex-1">
+                  <span className="block"></span>
+                  <button
+                    onClick={() => {
+                      const encodedAddress = encodeURIComponent("Olaya Street, Riyadh, Saudi Arabia");
+                      const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
+                      window.open(googleMapsUrl, '_blank');
+                    }}
+                    className="inline-flex items-center gap-1 mt-1  hover:text-blue-300 transition-colors duration-300 group"
+                  >
+                    <MapPin className="w-4 h-4 text-blue-400 mt-0.5 flex-shrink-0" />
+                    <span className="text-xs hover:text-blue-500 group-hover:no-underline cursor-pointer">
+                      Olaya Street, Riyadh, Saudi Arabia
+                    </span>
+                  </button>
+                </div>
               </li>
-              <li>
-                Email:{" "}
-                <a
-                  href="mailto:sales@digitallink.ae"
-                  className="hover:text-blue-400 transition-colors duration-300"
-                >
-                  sales@digitallink.ae
-                </a>
+
+              {/* Email */}
+              <li className="flex items-center gap-2">
+                <Mail className="w-4 h-4 text-blue-400 flex-shrink-0" />
+                <span>
+                  Email:{" "}
+                  <a
+                    href="mailto:sales@digitallink-sa.com"
+                    className="hover:text-blue-400 transition-colors duration-300"
+                  >
+                    sales@digitallink-sa.com
+                  </a>
+                </span>
               </li>
-             
-              <li>
-                Phone:{" "}
-                <a
-                  href="tel:+971552929644"
-                  className="hover:text-blue-400 transition-colors duration-300"
-                >
-                  +971 552929644
-                </a>
+
+              {/* Phone */}
+              <li className="flex items-center gap-2">
+                <Phone className="w-4 h-4 text-blue-400 flex-shrink-0" />
+                <span>
+                  Phone:{" "}
+                  <a
+                    href="tel:+966597015415"
+                    className="hover:text-blue-400 transition-colors duration-300"
+                  >
+                    +966 59 701 5415
+                  </a>
+                </span>
               </li>
-             
             </ul>
           </div>
-        </div>
 
+        </div>
         {/* Bottom Bar - Smaller */}
         <div className="border-t border-gray-800 mt-4 sm:mt-6 pt-3 sm:pt-4">
           <div className="text-center text-xs text-gray-400">

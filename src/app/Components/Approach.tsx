@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 const Approach: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -11,6 +12,7 @@ const Approach: React.FC = () => {
     satisfaction: 0
   });
   const sectionRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
 
   // Intersection Observer for scroll animations
   useEffect(() => {
@@ -59,38 +61,38 @@ const Approach: React.FC = () => {
   };
 
   const stats = [
-    { 
-      key: 'years', 
-      value: counters.years, 
-      suffix: '+', 
+    {
+      key: 'years',
+      value: counters.years,
+      suffix: '+',
       label: 'Years Experience',
       delay: '0ms'
     },
-    { 
-      key: 'clients', 
-      value: counters.clients, 
-      suffix: '+', 
+    {
+      key: 'clients',
+      value: counters.clients,
+      suffix: '+',
       label: 'CLIENTS',
       delay: '200ms'
     },
-    { 
-      key: 'products', 
-      value: counters.products, 
-      suffix: '+', 
+    {
+      key: 'products',
+      value: counters.products,
+      suffix: '+',
       label: 'PRODUCT LINES',
       delay: '400ms'
     },
-    { 
-      key: 'satisfaction', 
-      value: counters.satisfaction, 
-      suffix: '%', 
+    {
+      key: 'satisfaction',
+      value: counters.satisfaction,
+      suffix: '%',
       label: 'CLIENTS SATISFACTION',
       delay: '600ms'
     }
   ];
 
   return (
-    <section 
+    <section
       ref={sectionRef}
       className="relative bg-gradient-to-br from-gray-50 via-white to-gray-100 py-20 px-4 sm:px-6 lg:px-8 overflow-hidden"
     >
@@ -103,10 +105,9 @@ const Approach: React.FC = () => {
       <div className="relative max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-16">
-          <div 
-            className={`transition-all duration-1000 transform ${
-              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-            }`}
+          <div
+            className={`transition-all duration-1000 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+              }`}
           >
             <div className="text-sm font-semibold tracking-[0.2em] text-blue-600 uppercase mb-8 relative">
               <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
@@ -115,12 +116,11 @@ const Approach: React.FC = () => {
               <div className="absolute -bottom-2 left-0 w-12 h-0.5 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full"></div>
             </div>
           </div>
-          
+
           <div className="grid lg:grid-cols-2 gap-16 items-start">
-            <div 
-              className={`transition-all duration-1000 delay-300 transform ${
-                isVisible ? 'translate-x-0 opacity-100' : '-translate-x-8 opacity-0'
-              }`}
+            <div
+              className={`transition-all duration-1000 delay-300 transform ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-8 opacity-0'
+                }`}
             >
               <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-[1.1] mb-6">
                 <span className="block t">
@@ -130,19 +130,17 @@ const Approach: React.FC = () => {
                   and Approach
                 </span>
               </h2>
-              
+
               {/* Decorative line */}
               <div className="w-16 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full mb-8 transform origin-left">
-                <div className={`h-full bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full transition-transform duration-1000 delay-500 ${
-                  isVisible ? 'scale-x-100' : 'scale-x-0'
-                }`}></div>
+                <div className={`h-full bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full transition-transform duration-1000 delay-500 ${isVisible ? 'scale-x-100' : 'scale-x-0'
+                  }`}></div>
               </div>
             </div>
-            
-            <div 
-              className={`lg:pt-8 transition-all duration-1000 delay-500 transform ${
-                isVisible ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
-              }`}
+
+            <div
+              className={`lg:pt-8 transition-all duration-1000 delay-500 transform ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
+                }`}
             >
               <div className="relative">
                 <p className="text-gray-700 leading-relaxed text-lg mb-8 relative z-10">
@@ -151,18 +149,23 @@ const Approach: React.FC = () => {
                   proficient team offers premium, inventive solutions tailored to enhance
                   productivity, efficiency, and security.
                 </p>
-                
+
                 {/* Floating accent */}
                 <div className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full blur-xl opacity-60 animate-pulse"></div>
               </div>
-              
+
               <div className="relative">
-                <p className="text-sm font-semibold tracking-[0.15em] text-gray-800 uppercase border-b border-gray-300 pb-3 mb-2 relative">
+                <button
+                  type="button"
+                  onClick={() => router.push("/overview")}
+                 className="w-full text-left text-sm font-semibold tracking-[0.15em] text-gray-800 uppercase pb-3 mb-2 relative bg-transparent cursor-pointer transition-colors duration-500 hover:text-blue-400 focus:outline-none"
+
+                  style={{ background: "none" }}
+                >
                   OUR COMPANY OVERVIEW & HISTORY
-                </p>
-                <div className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-600 to-indigo-600 transition-all duration-1000 delay-700 ${
-                  isVisible ? 'w-full' : 'w-0'
-                }`}></div>
+                </button>
+                <div className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-600 to-indigo-600 transition-all duration-1000 delay-700 ${isVisible ? 'w-full' : 'w-0'
+                  }`}></div>
               </div>
             </div>
           </div>
@@ -171,11 +174,10 @@ const Approach: React.FC = () => {
         {/* Stats Section */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {stats.map((stat, index) => (
-            <div 
+            <div
               key={stat.key}
-              className={`text-center lg:text-left transition-all duration-700 ${
-                isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'
-              }`}
+              className={`text-center lg:text-left transition-all duration-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'
+                }`}
               style={{ transitionDelay: stat.delay }}
             >
               {/* Animated dot */}
@@ -183,20 +185,19 @@ const Approach: React.FC = () => {
                 <div className="w-4 h-4 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-full animate-ping opacity-75"></div>
                 </div>
-                
+
                 {/* Connecting line effect */}
-                <div className={`absolute top-2 left-2 w-16 h-px bg-gradient-to-r from-blue-200 to-transparent transition-all duration-1000 delay-1000 ${
-                  isVisible ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'
-                }`}></div>
+                <div className={`absolute top-2 left-2 w-16 h-px bg-gradient-to-r from-blue-200 to-transparent transition-all duration-1000 delay-1000 ${isVisible ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'
+                  }`}></div>
               </div>
-              
+
               {/* Counter */}
               <div className="mb-3">
                 <span className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-gray-900 to-blue-900 bg-clip-text text-transparent block leading-none">
                   {stat.value}{stat.suffix}
                 </span>
               </div>
-              
+
               {/* Label */}
               <h3 className="text-sm lg:text-base font-semibold text-gray-700 tracking-wide uppercase">
                 {stat.label}

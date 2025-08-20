@@ -307,7 +307,7 @@ const slideInRight: Variants = {
                  Our ELV solutions
                 </motion.div>
                 <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight mb-3 md:mb-4 lg:mb-6">
-                 ELV Company In <span className="text-blue-500">Dubai</span>
+                 ELV Company In <span className="text-blue-500">UAE, Saudi and Baharain</span>
                 </h1>
                 <p className="text-sm md:text-lg lg:text-xl text-gray-300 leading-relaxed">
                  Specializing in Extra Low Voltage (ELV) systems, our company delivers integrated solutions for security, communication, and automation.
@@ -347,7 +347,7 @@ const slideInRight: Variants = {
       className="w-full lg:w-1/2 space-y-8"
     >
       <div className="inline-block px-4 py-2 text-blue-600 rounded-full text-sm font-medium mb-4">
-        Elevating Dubai's Skyline
+        Elevating UAE, Saudi and Baharain's Skyline
       </div>
 
       <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
@@ -358,7 +358,7 @@ const slideInRight: Variants = {
       <p className="text-xl text-gray-600 leading-relaxed">
         At <span className="font-bold text-blue-600">DigitalLink</span>,
         we blend state-of-the-art technology with innovative design to
-        elevate the standard of vertical transportation in Dubai.
+        elevate the standard of vertical transportation across the <span className="text-blue-500">UAE, Saudi and Baharain. </span>
         Experience the merger of safety, luxury, and efficiency as we
         redefine the way you move.
       </p>

@@ -120,7 +120,7 @@ const ServicesSection = () => {
       >
         <div className="max-w-4xl">
           <p className="text-2xl md:text-3xl lg:text-4xl text-gray-600 leading-relaxed">
-            We are an independent company and the authorized distributor of UNV products in Dubai.
+           We are an independent company and the authorized distributor of UNV products across the <span className="text-blue-500">UAE, Saudi and Baharain</span>.
           </p>
         </div>
       </motion.div>

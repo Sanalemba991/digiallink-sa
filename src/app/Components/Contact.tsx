@@ -210,9 +210,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <p className="font-medium text-gray-700">PHONE</p>
-                      <a href="tel:+97142241977" className="text-blue-500 hover:underline block">+971 4 224 1977</a>
-                      <a href="tel:+971552929644" className="text-blue-500 hover:underline block">+971 552929644</a>
-                      <a href="tel:+971509982727" className="text-blue-500 hover:underline block">+971 50 998 2727</a>
+                      <a href="tel:+966597015415" className="text-blue-500 hover:underline block">+966 59 701 5415</a>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
@@ -221,8 +219,8 @@ export default function Contact() {
                     </div>
                     <div>
                       <p className="font-medium text-gray-700">EMAIL</p>
-                      <a href="mailto:sales@digitallink.ae" className="text-blue-500 hover:underline">
-                        sales@digitallink.ae
+                      <a href="mailto:sales@digitallink-sa.com" className="text-blue-500 hover:underline">
+                        sales@digitallink-sa.com
                       </a>
                     </div>
                   </div>
@@ -239,11 +237,10 @@ export default function Contact() {
                     </div>
                     <div>
                       <p className="font-medium text-gray-700">
-                        DUBAI OFFICE
+                        RIYADH OFFICE
                       </p>
-                      <p>Baghlaf Building Shop No.11  Market</p>
-                      <p>Satellite Market, Naif, Deira - Dubai United Arab Emirates</p>
-                      <p> Dubai United Arab Emirates, P.O.Box: 123241</p>
+                      <p>Olaya Street</p>
+                      <p>Riyadh, Saudi Arabia</p>
                     </div>
                   </div>
                 </div>
@@ -254,11 +251,11 @@ export default function Contact() {
                 </h3>
                 <div className="text-gray-600 space-y-2">
                   <div className="flex justify-between">
-                    <span className="font-medium text-gray-700">Mon-Sat:</span>
+                    <span className="font-medium text-gray-700">Sun-Thu:</span>
                     <span>9:00 AM – 6:00 PM</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="font-medium text-gray-700">Sun:</span>
+                    <span className="font-medium text-gray-700">Fri-Sat:</span>
                     <span>Closed</span>
                   </div>
                 </div>
@@ -504,7 +501,7 @@ export default function Contact() {
                 transition={{ delay: 0.3, duration: 0.5 }}
                 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6"
               >
-                Find Us in <span className="text-blue-500">Dubai</span>
+                Find Us in <span className="text-blue-500">Saudi Arabia</span>
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -513,7 +510,7 @@ export default function Contact() {
                 transition={{ delay: 0.4, duration: 0.5 }}
                 className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed"
               >
-                Visit our office at Baghlaf Building, Shop No.11, Satellite Market, Naif, Deira - Dubai, UAE
+                Visit our office at Olaya Street, Riyadh, Saudi Arabia
               </motion.p>
             </div>
           </div>
@@ -526,14 +523,14 @@ export default function Contact() {
             className="w-full h-[600px] relative"
           >
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.0719507721437!2d55.30274081501514!3d25.27494098385928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f435f89777647%3A0x6f7f8eb1741e1e55!2sBaghlaf%20Building%20-%20Naif%20-%20Dubai%20-%20United%20Arab%20Emirates!5e0!3m2!1sen!2s!4v1629282422777!5m2!1sen!2s"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.2738!2d46.6752776!3d24.6955593!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f031b6c5e4e55%3A0x1c1b1b1b1b1b1b1b!2sOlaya%20St%2C%20Riyadh%20Saudi%20Arabia!5e0!3m2!1sen!2s!4v1629282422777!5m2!1sen!2s"
               width="100%"
               height="100%"
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Baghlaf Building, Naif, Deira - Dubai"
+              title="Olaya Street, Riyadh, Saudi Arabia"
               className="absolute inset-0"
             />
           </motion.div>

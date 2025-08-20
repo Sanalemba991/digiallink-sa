@@ -2,18 +2,18 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { Variants } from "framer-motion";
-import { 
-  Shield, 
-  Camera, 
-  Users, 
-  TrendingUp, 
-  Eye, 
-  Lock, 
-  BarChart3, 
-  Building, 
-  AlertCircle, 
-  CheckCircle, 
-  ArrowRight, 
+import {
+  Shield,
+  Camera,
+  Users,
+  TrendingUp,
+  Eye,
+  Lock,
+  BarChart3,
+  Building,
+  AlertCircle,
+  CheckCircle,
+  ArrowRight,
   Play,
   Star,
   MapPin,
@@ -66,18 +66,18 @@ const ItServices = () => {
   // Function to scroll to specific section
   const scrollToSection = (sectionId: string) => {
     setActiveTab(sectionId);
-    
+
     const sectionRefs = {
       overview: overviewRef,
       solutions: solutionsRef
     };
-    
+
     const targetRef = sectionRefs[sectionId as keyof typeof sectionRefs];
     if (targetRef && targetRef.current) {
       // Offset for sticky nav
       const navHeight = 80;
       const elementPosition = targetRef.current.offsetTop - navHeight;
-      
+
       window.scrollTo({
         top: elementPosition,
         behavior: 'smooth'
@@ -169,63 +169,63 @@ const ItServices = () => {
 
   // Animation variants
   const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 60 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut" // Use one of the predefined easing strings
+    hidden: { opacity: 0, y: 60 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut" // Use one of the predefined easing strings
+      }
     }
-  }
-};
+  };
 
-const staggerContainer: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.1
+  const staggerContainer: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1
+      }
     }
-  }
-};
+  };
 
-const scaleUp: Variants = {
-  hidden: { opacity: 0, scale: 0.8 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      duration: 0.5,
-      ease: "easeOut"
+  const scaleUp: Variants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut"
+      }
     }
-  }
-};
+  };
 
-const slideInLeft: Variants = {
-  hidden: { opacity: 0, x: -60 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut"
+  const slideInLeft: Variants = {
+    hidden: { opacity: 0, x: -60 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
     }
-  }
-};
+  };
 
-const slideInRight: Variants = {
-  hidden: { opacity: 0, x: 60 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut"
+  const slideInRight: Variants = {
+    hidden: { opacity: 0, x: 60 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
     }
-  }
-};
+  };
 
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
@@ -238,9 +238,9 @@ const slideInRight: Variants = {
         variants={fadeInUp}
       >
         <div className="absolute inset-0 bg-black/20" />
-        
+
         {/* Animated background elements - Hidden on mobile */}
-        <motion.div 
+        <motion.div
           className="absolute top-10 left-10 md:top-20 md:left-20 w-32 h-32 md:w-72 md:h-72 bg-blue-600/10 rounded-full blur-3xl hidden md:block"
           animate={{
             scale: [1, 1.2, 1],
@@ -252,7 +252,7 @@ const slideInRight: Variants = {
             ease: "easeInOut"
           }}
         />
-        <motion.div 
+        <motion.div
           className="absolute bottom-10 right-10 md:bottom-20 md:right-20 w-48 h-48 md:w-96 md:h-96 bg-purple-600/10 rounded-full blur-3xl hidden md:block"
           animate={{
             scale: [1.2, 1, 1.2],
@@ -269,7 +269,7 @@ const slideInRight: Variants = {
           <div className="grid lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-center">
             <motion.div className="space-y-4 md:space-y-6 lg:space-y-8 overflow-hidden" variants={staggerContainer}>
               <motion.div variants={fadeInUp}>
-                <motion.div 
+                <motion.div
                   className="inline-flex items-center px-3 py-1.5 md:px-4 md:py-2 bg-blue-600/20 backdrop-blur-sm border border-blue-500/30 rounded-full text-blue-300 text-xs md:text-sm font-medium mb-4 md:mb-6"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}
@@ -278,17 +278,17 @@ const slideInRight: Variants = {
                   Digital Link Technology
                 </motion.div>
                 <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight mb-3 md:mb-4 lg:mb-6">
-                  Information Technology and AI <span className='text-blue-500'> Solutions In Dubai</span>
+                  Information Technology and AI Solutions across the <span className='text-blue-500'>  UAE, Saudi and Baharain</span>
                 </h1>
                 <p className="text-sm md:text-lg lg:text-xl text-gray-300 leading-relaxed">
-                  We excel in providing top-notch Information Technology and Artificial Intelligence solutions to businesses across Dubai and the UAE. From cutting-edge app development to AI-driven innovations, partner with us to unlock your business potential.
+                  We excel in providing top-notch Information Technology and Artificial Intelligence solutions to businesses across the <span className='text-blue-500'>UAE, Saudi and Baharain</span>  . From cutting-edge app development to AI-driven innovations, partner with us to unlock your business potential.
                 </p>
               </motion.div>
 
-             
+
             </motion.div>
 
-            <motion.div 
+            <motion.div
               className="relative overflow-hidden"
               variants={slideInRight}
             >
@@ -304,13 +304,13 @@ const slideInRight: Variants = {
       </motion.section>
 
       {/* Navigation Tabs - Mobile Optimized */}
-     
+
 
       {/* Overview Section - Mobile Optimized */}
       <section ref={overviewRef} className="py-8 md:py-12 lg:py-16 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-hidden">
           {/* Key Benefits */}
-          <motion.div 
+          <motion.div
             ref={benefitsRef}
             className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl md:rounded-2xl p-4 md:p-6 lg:p-8 overflow-hidden"
             initial="hidden"
@@ -321,9 +321,9 @@ const slideInRight: Variants = {
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2 md:mb-4">
                 Why Choose Digital Link Technology?
               </h2>
-              <p className="text-lg text-gray-600">Expert IT & AI Solutions in UAE - Your Strategic Partnership</p>
+              <p className="text-lg text-gray-600">Expert IT & AI Solutions across the <span className='text-blue-500'>UAE, Saudi and Baharain</span> - Your Strategic Partnership</p>
             </motion.div>
-            <motion.div 
+            <motion.div
               className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8 overflow-hidden"
               variants={staggerContainer}
             >
@@ -349,27 +349,31 @@ const slideInRight: Variants = {
               ].map((benefit, index) => {
                 const Icon = benefit.icon;
                 return (
-                  <motion.div 
+                  <motion.div
                     key={index}
-                    className="text-center overflow-hidden"
+                    className="text-center overflow-visible p-4"
                     variants={scaleUp}
-                    whileHover={{ y: -5 }}
+                    whileHover={{
+                      scale: 1.02,
+                      transition: { duration: 0.2 }
+                    }}
                   >
-                    <motion.div 
-                      className={`w-12 h-12 md:w-16 md:h-16 ${benefit.color} rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4`}
-                      whileHover={{ scale: 1.1, rotate: 5 }}
-                    >
-                      <Icon className="w-6 h-6 md:w-8 md:h-8 text-white" />
-                    </motion.div>
-                    <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-1.5 md:mb-2">{benefit.title}</h3>
-                    <p className="text-sm md:text-base text-gray-600">{benefit.description}</p>
+                    <div className="group"> {/* Add group wrapper */}
+                      <motion.div
+                        className={`w-12 h-12 md:w-16 md:h-16 ${benefit.color} rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4 transition-transform group-hover:rotate-45 duration-300`} 
+                      >
+                        <Icon className="w-6 h-6 md:w-8 md:h-8 text-white" />
+                      </motion.div>
+                      <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-1.5 md:mb-2">{benefit.title}</h3>
+                      <p className="text-sm md:text-base text-gray-600">{benefit.description}</p>
+                    </div>
                   </motion.div>
                 );
               })}
             </motion.div>
 
             {/* Additional Benefits */}
-            <motion.div 
+            <motion.div
               className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8 mt-6 md:mt-8 overflow-hidden"
               variants={staggerContainer}
             >
@@ -395,20 +399,24 @@ const slideInRight: Variants = {
               ].map((benefit, index) => {
                 const Icon = benefit.icon;
                 return (
-                  <motion.div 
+                  <motion.div
                     key={index}
-                    className="text-center overflow-hidden"
+                    className="text-center overflow-visible p-4"
                     variants={scaleUp}
-                    whileHover={{ y: -5 }}
+                    whileHover={{
+                      scale: 1.02,
+                      transition: { duration: 0.2 }
+                    }}
                   >
-                    <motion.div 
-                      className={`w-12 h-12 md:w-16 md:h-16 ${benefit.color} rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4`}
-                      whileHover={{ scale: 1.1, rotate: 5 }}
-                    >
-                      <Icon className="w-6 h-6 md:w-8 md:h-8 text-white" />
-                    </motion.div>
-                    <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-1.5 md:mb-2">{benefit.title}</h3>
-                    <p className="text-sm md:text-base text-gray-600">{benefit.description}</p>
+                    <div className="group"> {/* Add group wrapper */}
+                      <motion.div
+                        className={`w-12 h-12 md:w-16 md:h-16 ${benefit.color} rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4 transition-transform group-hover:rotate-45 duration-300`}
+                      >
+                        <Icon className="w-6 h-6 md:w-8 md:h-8 text-white" />
+                      </motion.div>
+                      <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-1.5 md:mb-2">{benefit.title}</h3>
+                      <p className="text-sm md:text-base text-gray-600">{benefit.description}</p>
+                    </div>
                   </motion.div>
                 );
               })}
@@ -429,25 +437,25 @@ const slideInRight: Variants = {
           >
             <motion.div className="text-center mb-8 md:mb-12 overflow-hidden" variants={fadeInUp}>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2 md:mb-4">Our <span className='text-blue-500'>Solutions</span></h2>
-              <p className="text-lg md:text-xl text-gray-600">Comprehensive IT and AI solutions for businesses across Dubai and the UAE</p>
+              <p className="text-lg md:text-xl text-gray-600">Comprehensive IT and AI solutions for businesses across the <span className='text-blue-500'> UAE, Saudi and Baharain</span></p>
             </motion.div>
 
             <div className="space-y-8 md:space-y-12 lg:space-y-16 overflow-hidden">
               {solutionCategories.map((category, index) => (
-                <motion.div 
-                  key={index} 
+                <motion.div
+                  key={index}
                   className={`grid lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-center overflow-hidden ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}
                   variants={fadeInUp}
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true, amount: 0.3 }}
                 >
-                  <motion.div 
+                  <motion.div
                     className={`space-y-4 md:space-y-6 overflow-hidden ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}
                     variants={index % 2 === 0 ? slideInLeft : slideInRight}
                   >
                     <div className="overflow-hidden">
-                      <motion.p 
+                      <motion.p
                         className="text-xs md:text-sm font-medium text-blue-600 uppercase tracking-wide mb-1.5 md:mb-2"
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
@@ -455,7 +463,7 @@ const slideInRight: Variants = {
                       >
                         {category.subtitle}
                       </motion.p>
-                      <motion.h3 
+                      <motion.h3
                         className="text-2xl md:text-3xl font-bold text-gray-900 mb-2 md:mb-4"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -463,7 +471,7 @@ const slideInRight: Variants = {
                       >
                         {category.title}
                       </motion.h3>
-                      <motion.p 
+                      <motion.p
                         className="text-sm md:text-base lg:text-lg text-gray-600"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -472,16 +480,16 @@ const slideInRight: Variants = {
                         {category.description}
                       </motion.p>
                     </div>
-                    
-                    <motion.div 
+
+                    <motion.div
                       className="space-y-2 md:space-y-3 overflow-hidden"
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
                       transition={{ delay: 0.5 }}
                     >
                       {category.solutions.map((solution, idx) => (
-                        <motion.div 
-                          key={idx} 
+                        <motion.div
+                          key={idx}
                           className="flex items-center overflow-hidden"
                           initial={{ opacity: 0, x: -20 }}
                           whileInView={{ opacity: 1, x: 0 }}
@@ -494,7 +502,7 @@ const slideInRight: Variants = {
                     </motion.div>
                   </motion.div>
 
-                  <motion.div 
+                  <motion.div
                     className={`overflow-hidden ${index % 2 === 1 ? 'lg:col-start-1' : ''}`}
                     variants={index % 2 === 0 ? slideInRight : slideInLeft}
                   >

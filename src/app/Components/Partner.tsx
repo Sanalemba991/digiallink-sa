@@ -175,39 +175,7 @@ const PartnersSection = () => {
               </motion.div>
 
               {/* Center piece with typewriter effect - MOVED OUTSIDE rotating container */}
-              <motion.div
-                className="absolute inset-0 w-28 h-28 md:w-48 md:h-48 bg-transparent rounded-full flex flex-col items-center justify-center z-20 m-auto"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.5 }}
-              >
-                <div className="text-center">
-                  <motion.div
-                    className="text-lg md:text-2xl font-bold text-gray-900 tracking-wide mb-2 min-h-[60px] md:min-h-[90px] flex flex-col items-center justify-center"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ delay: 0.3, duration: 0.5 }}
-                  >
-                    {currentTextIndex < 2 ? (
-                      <span>
-                        {displayText}
-                        <span className="animate-pulse">|</span>
-                      </span>
-                    ) : (
-                      <>
-                        <div className="mb-1">OUR</div>
-                        <div className="mb-2">PARTNERS</div>
-                        <p className="text-xs text-gray-700 leading-relaxed px-1 md:px-3">
-                          {displayText}
-                          <span className="animate-pulse">|</span>
-                        </p>
-                      </>
-                    )}
-                  </motion.div>
-                </div>
-              </motion.div>
+              
             </div>
           </div>
         </div>

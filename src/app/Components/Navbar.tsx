@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
-import { BrainCog, Cable, Video, ShieldCheck, ChevronDown, Mail, Phone, ChevronRight } from 'lucide-react';
+import { BrainCog, Cable, Video, ShieldCheck, ChevronDown, Mail, Phone, ChevronRight, MapPin } from 'lucide-react';
 
 const useNavbarStyles = () => {
   useEffect(() => {
@@ -74,36 +74,37 @@ export default function Navbar() {
 
   const navItems = [
     { href: '/', label: 'HOME' },
+        { href: '/our-company', label: 'OUR COMPANY' },
     { href: '/solution', label: 'SOLUTION' },
     { href: '/product', label: 'PRODUCT' },
     { href: '/contact', label: 'CONTACT' },
-    { href: '/our-company', label: 'OUR COMPANY' }
+
   ];
 
   const solutionDropdownItems = [
-    { 
-      href: '/solution/it', 
+    {
+      href: '/solution/it',
       label: 'IT & AI Section',
       description: 'Advanced AI & Cloud Solutions for Modern Business',
       icon: BrainCog,
       image: '/images/solutions/it-ai-solution.jpg'
     },
-    { 
-      href: '/solution/elevatorelvsolutions', 
+    {
+      href: '/solution/elevatorelvsolutions',
       label: 'Elevator ELV Solution',
       description: 'Smart Building Systems & Automation Technology',
       icon: Cable,
       image: '/images/solutions/elevator-elv-solution.jpg'
     },
-    { 
-      href: '/solution/audio', 
+    {
+      href: '/solution/audio',
       label: 'Audio and Visual Solution',
       description: 'Professional AV Systems & Integration Services',
       icon: Video,
       image: '/images/solutions/audio-visual-solution.jpg'
     },
-    { 
-      href: '/solution/servalliance', 
+    {
+      href: '/solution/servalliance',
       label: 'Surveillance Solution',
       description: 'Advanced Security & Monitoring Systems',
       icon: ShieldCheck,
@@ -124,7 +125,7 @@ export default function Navbar() {
   };
 
   const getAnimationClass = () => isMounted ? 'animate-fade-in' : '';
-  const getItemAnimationClass = (index: number) => 
+  const getItemAnimationClass = (index: number) =>
     isMounted ? `animate-scale-in` : '';
 
   return (
@@ -133,64 +134,65 @@ export default function Navbar() {
         <div className="flex justify-between h-20 items-center">
           {/* Logo/Brand */}
           <div className="flex-shrink-0 flex items-center">
-            <Link href="/" className="flex items-center group transition-all duration-500 ease-in-out">                        
+            <Link href="/" className="flex items-center group transition-all duration-500 ease-in-out">
               <Image
-                src="/logo/logo.png"
+                src="/logo/Digitallink Logo.png"
                 alt="Company Logo"
                 width={200}
                 height={200}
                 className="h-14 w-auto transition-all duration-500 ease-in-out group-hover:scale-105 group-hover:brightness-110"
                 priority
-              /> 
+              />
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-6 relative">
-            <div className="flex items-center space-x-6">
-              {navItems.map((item) =>
-                item.href === '/solution' ? (
-                  <div
-                    key={item.href}
-                    className="relative"
-                    onMouseEnter={handleDropdownEnter}
-                    onMouseLeave={handleDropdownLeave}
-                  >
-                    <NavLink
-                      href={item.href}
-                      isActive={pathname.startsWith('/solution')}
-                      hasDropdown={true}
-                    >
-                      {item.label}
-                    </NavLink>
-                  </div>
-                ) : (
-                  <div 
-                    key={item.href}
-                    onMouseEnter={() => setShowSolutionDropdown(false)}
-                  >
-                    <NavLink
-                      href={item.href}
-                      isActive={pathname === item.href}
-                    >
-                      {item.label}
-                    </NavLink>
-                  </div>
-                )
-              )}
+          <div className="flex-1 flex items-center justify-center">
+            <div className="hidden lg:flex items-center space-x-8">
+              <NavLink href="/" isActive={pathname === '/'}>Home</NavLink>
+              <NavLink href="/our-company" isActive={pathname === '/our-company'}>Our Company</NavLink>
+              <NavLink
+                href="/solution"
+                isActive={pathname.startsWith('/solution')}
+                hasDropdown={true}
+                onMouseEnter={handleDropdownEnter}
+                onMouseLeave={handleDropdownLeave}
+              >
+                Solutions
+              </NavLink>
+              <NavLink href="/product" isActive={pathname === '/product'}>Products</NavLink>
+              <NavLink href="/contact" isActive={pathname === '/contact'}>Contact</NavLink>
             </div>
-            
-            {/* Contact Info */}
-            <div className="flex items-center space-x-8 ml-6 border-l pl-6 text-sm">
-              <Link href="mailto:sales@digitallink.ae" className="flex items-center text-gray-600 hover:text-blue-600 transition-colors">
-                <Mail className="w-4 h-4 mr-2" />
-                <span>sales@digitallink.ae</span>
-              </Link>
-              <Link href="tel:+971552929644" className="flex items-center text-gray-600 hover:text-blue-600 transition-colors">
-                <Phone className="w-4 h-4 mr-2" />
-                <span>+971 552929644</span>
-              </Link>
-            </div>
+          </div>
+
+          {/* Contact Info - Updated with icons and contact link */}
+          <div className="hidden lg:flex items-center space-x-6">
+            <div className="h-6 w-px bg-gray-200"></div>
+            <Link 
+              href="mailto:sales@digitallink-sa.com" 
+              className="text-gray-600 hover:text-blue-600 transition-colors"
+              title="Email Us"
+            >
+              <Mail className="w-5 h-5" />
+            </Link>
+            <div className="h-6 w-px bg-gray-200"></div>
+            <Link 
+              href="https://www.google.com/maps/search/?api=1&query=Olaya+Street,+Riyadh,+Saudi+Arabia" 
+              target="_blank"
+              className="text-gray-600 hover:text-blue-600 transition-colors"
+              title="Find Us"
+            >
+              <MapPin className="w-5 h-5" />
+            </Link>
+            <div className="h-6 w-px bg-gray-200"></div>
+            <Link 
+              href="tel:+966597015415"
+              className="text-gray-600 hover:text-blue-600 transition-colors"
+              title="Contact Us"
+            >
+              <Phone className="w-5 h-5" />
+            </Link>
+            <div className="h-6 w-px bg-gray-200"></div>
           </div>
 
           {/* Mobile menu button */}
@@ -219,7 +221,7 @@ export default function Navbar() {
 
       {/* Large Enhanced Dropdown */}
       {showSolutionDropdown && (
-        <div 
+        <div
           className="mega-dropdown animate-fade-in"
           onMouseEnter={handleDropdownEnter}
           onMouseLeave={handleDropdownLeave}
@@ -231,15 +233,14 @@ export default function Navbar() {
                   {solutionDropdownItems.map((solution, index) => {
                     const IconComponent = solution.icon;
                     return (
-                      <div 
+                      <div
                         key={solution.href}
                         onClick={() => {
                           setShowSolutionDropdown(false);
                           router.push(solution.href);
                         }}
-                        className={`group relative bg-white rounded-xl border border-gray-200 hover:border-blue-300 transition-all duration-300 hover:shadow-xl transform hover:-translate-y-2 overflow-hidden cursor-pointer ${getItemAnimationClass(index)} ${
-                          pathname === solution.href ? 'ring-2 ring-blue-500 border-blue-300 shadow-lg' : ''
-                        }`}
+                        className={`group relative bg-white rounded-xl border border-gray-200 hover:border-blue-300 transition-all duration-300 hover:shadow-xl transform hover:-translate-y-2 overflow-hidden cursor-pointer ${getItemAnimationClass(index)} ${pathname === solution.href ? 'ring-2 ring-blue-500 border-blue-300 shadow-lg' : ''
+                          }`}
                         style={isMounted ? { animationDelay: `${index * 100}ms` } : {}}
                       >
                         <div className="relative h-36 overflow-hidden">
@@ -255,7 +256,7 @@ export default function Navbar() {
                             <IconComponent className="w-5 h-5 text-blue-600" />
                           </div>
                         </div>
-                        
+
                         <div className="p-6">
                           <h4 className="font-bold text-gray-900 text-lg group-hover:text-blue-600 transition-colors duration-300 mb-3 leading-tight">
                             {solution.label}
@@ -270,7 +271,7 @@ export default function Navbar() {
                             </svg>
                           </div>
                         </div>
-                        
+
                         {pathname === solution.href && (
                           <div className="absolute top-0 right-0 w-0 h-0 border-l-[24px] border-l-transparent border-t-[24px] border-t-blue-500">
                             <div className="absolute -top-6 -right-6 w-3 h-3 bg-white rounded-full"></div>
@@ -280,7 +281,7 @@ export default function Navbar() {
                     );
                   })}
                 </div>
-                
+
                 <div className="text-center pt-8 border-t border-gray-100">
                   <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Need help choosing the right solution?
@@ -288,19 +289,23 @@ export default function Navbar() {
                   <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
                     Our experts are ready to help you find the perfect technology solution for your business needs.
                   </p>
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-                    onClick={() => setShowSolutionDropdown(false)}
+                  <button 
+                    onClick={() => {
+                      setShowSolutionDropdown(false);
+                      router.push('/solution');
+                    }}
+                    className="group inline-flex items-center px-10 py-4 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 text-white rounded-xl hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 transition-all duration-300 font-semibold shadow-lg hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 min-w-[200px]"
                   >
-                    <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                    View All Solutions
+                    <svg
+                      className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform duration-300"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                     </svg>
-                    Contact Our Experts
-                    <svg className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </Link>
+                  </button>
                 </div>
               </div>
             </div>
@@ -320,11 +325,10 @@ export default function Navbar() {
                     <button
                       key={item.href}
                       onClick={toggleMobileSolutionPages}
-                      className={`flex items-center justify-between w-full px-4 py-2.5 rounded-lg text-sm font-medium tracking-wide transition-all duration-500 ease-in-out relative overflow-hidden ${
-                        pathname.startsWith('/solution')
+                      className={`flex items-center justify-between w-full px-4 py-2.5 rounded-lg text-sm font-medium tracking-wide transition-all duration-500 ease-in-out relative overflow-hidden ${pathname.startsWith('/solution')
                           ? 'text-blue-600 bg-blue-50/80 border-l-4 border-blue-500'
                           : 'text-gray-700 hover:text-gray-900 hover:bg-gray-100/50'
-                      }`}
+                        }`}
                     >
                       <span className="relative z-10">{item.label}</span>
                       <ChevronRight className="w-4 h-4 text-gray-500" />
@@ -355,18 +359,17 @@ export default function Navbar() {
                   </svg>
                   Back to Menu
                 </button>
-                
+
                 {solutionDropdownItems.map((dropdown, index) => {
                   const IconComponent = dropdown.icon;
                   return (
                     <Link
                       key={dropdown.href}
                       href={dropdown.href}
-                      className={`flex items-center space-x-3 px-4 py-3 text-sm rounded-lg font-medium transition-all duration-300 ${
-                        pathname === dropdown.href 
-                          ? 'text-blue-600 bg-blue-50 border-l-4 border-blue-500' 
+                      className={`flex items-center space-x-3 px-4 py-3 text-sm rounded-lg font-medium transition-all duration-300 ${pathname === dropdown.href
+                          ? 'text-blue-600 bg-blue-50 border-l-4 border-blue-500'
                           : 'text-gray-700 hover:bg-gray-100'
-                      } ${getItemAnimationClass(index)}`}
+                        } ${getItemAnimationClass(index)}`}
                       style={isMounted ? { animationDelay: `${index * 100}ms` } : {}}
                       onClick={() => {
                         toggleMobileMenu();
@@ -388,20 +391,29 @@ export default function Navbar() {
             {/* Contact Info for Mobile */}
             <div className="px-4 py-3 space-y-2 mt-4 bg-gray-50 rounded-lg">
               <Link
-                href="mailto:sales@digitallink.ae"
+                href="mailto:sales@digitallink-sa.com"
                 className="flex items-center text-gray-600 hover:text-blue-600 transition-colors py-2"
                 onClick={toggleMobileMenu}
               >
                 <Mail className="w-5 h-5 mr-3 text-blue-500" />
-                <span className="text-sm font-medium">sales@digitallink.ae</span>
+                <span className="text-sm font-medium">sales@digitallink-sa.com</span>
               </Link>
               <Link
-                href="tel:+971552929644"
+                href="tel:+966 59 701 5415"
                 className="flex items-center text-gray-600 hover:text-blue-600 transition-colors py-2"
                 onClick={toggleMobileMenu}
               >
                 <Phone className="w-5 h-5 mr-3 text-blue-500" />
-                <span className="text-sm font-medium">+971 552929644</span>
+                <span className="text-sm font-medium">+966 59 701 5415</span>
+              </Link>
+              <Link
+                href="https://www.google.com/maps/search/?api=1&query=Olaya+Street,+Riyadh,+Saudi+Arabia"
+                target="_blank"
+                className="flex items-center text-gray-600 hover:text-blue-600 transition-colors py-2"
+                onClick={toggleMobileMenu}
+              >
+                <MapPin className="w-5 h-5 mr-3 text-blue-500" />
+                <span className="text-sm font-medium">Olaya Street, Riyadh</span>
               </Link>
             </div>
           </div>
@@ -412,16 +424,16 @@ export default function Navbar() {
 }
 
 // NavLink component
-function NavLink({ 
-  href, 
-  children, 
-  isActive, 
+function NavLink({
+  href,
+  children,
+  isActive,
   hasDropdown = false,
   onMouseEnter,
-  onMouseLeave 
-}: { 
-  href: string; 
-  children: React.ReactNode; 
+  onMouseLeave
+}: {
+  href: string;
+  children: React.ReactNode;
   isActive: boolean;
   hasDropdown?: boolean;
   onMouseEnter?: () => void;
@@ -430,11 +442,10 @@ function NavLink({
   return (
     <Link
       href={href}
-      className={`flex items-center space-x-1 px-3 py-2 text-sm font-medium tracking-wide transition-all duration-500 ease-in-out relative group ${
-        isActive 
-          ? 'text-blue-600' 
+      className={`flex items-center space-x-1 px-3 py-2 text-sm font-medium tracking-wide transition-all duration-500 ease-in-out relative group ${isActive
+          ? 'text-blue-600'
           : 'text-gray-700 hover:text-gray-900'
-      }`}
+        }`}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
@@ -442,39 +453,37 @@ function NavLink({
       {hasDropdown && (
         <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isActive ? 'text-blue-600' : 'text-gray-500'} group-hover:rotate-180`} />
       )}
-      <span 
-        className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-500 to-blue-600 transition-all duration-700 ease-in-out ${
-          isActive 
-            ? 'w-full opacity-100' 
+      <span
+        className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-500 to-blue-600 transition-all duration-700 ease-in-out ${isActive
+            ? 'w-full opacity-100'
             : 'w-0 group-hover:w-full opacity-100'
-        }`}
+          }`}
       ></span>
     </Link>
   );
 }
 
 // MobileNavLink component
-function MobileNavLink({ 
-  href, 
-  children, 
-  onClick, 
-  isActive, 
-  hasDropdown = false 
-}: { 
-  href: string; 
-  children: React.ReactNode; 
-  onClick: () => void; 
+function MobileNavLink({
+  href,
+  children,
+  onClick,
+  isActive,
+  hasDropdown = false
+}: {
+  href: string;
+  children: React.ReactNode;
+  onClick: () => void;
   isActive: boolean;
   hasDropdown?: boolean;
 }) {
   return (
     <Link
       href={href}
-      className={`flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium tracking-wide transition-all duration-500 ease-in-out relative overflow-hidden ${
-        isActive
+      className={`flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium tracking-wide transition-all duration-500 ease-in-out relative overflow-hidden ${isActive
           ? 'text-blue-600 bg-blue-50/80 border-l-4 border-blue-500'
           : 'text-gray-700 hover:text-gray-900 hover:bg-gray-100/50'
-      }`}
+        }`}
       onClick={onClick}
     >
       <span className="relative z-10">{children}</span>

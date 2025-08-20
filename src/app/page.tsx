@@ -18,35 +18,36 @@ export default function Banner() {
   // Array of banner images with descriptions and links
   const banners = [
     {
-      image: "/banner/banner.jpg",
-      title: <>In it for <span style={{ color: '#3A55E8' }}>the long haul! section</span></>,
-      description: "We want to build a relationship, not just a customer base.",
-      link: "/digital",
-      buttonText: "LEARN MORE"
+      image: "/banner/Award 2.png",
+      title: <>Award-Winning <span style={{ color: '#3A55E8' }}>Excellence</span></>,
+      description: "Recognized globally for our innovative solutions and outstanding technological achievements.",
+      link: "/awards",
+      buttonText: "VIEW AWARDS"
     },
-    {
-      image: "/banner/banner (1).jpg",
-      title: <>Premium <span style={{ color: '#3A55E8' }}>Home Services</span></>,
-      description: "Excellence in every detail for your modern home needs.",
-      link: "/home",
-      buttonText: "DISCOVER MORE"
-    },
-    {
-      image: "/banner/banner (2).jpg",
-      title: <>Quality  <span style={{ color: '#3A55E8' }}>Products</span></>,
-      description: "High-quality products designed for lasting excellence.",
-      link: "/products",
-      buttonText: "VIEW PRODUCTS"
-    },
+   {
+image: "/banner/banner (1).jpg",
+title: <>Enterprise <span style={{ color: '#3A55E8' }}>Solutions</span></>,
+description: "Complete surveillance ecosystems: high-definition cameras, reliable storage, professional cabling, and durable hard disks for long-term performance.",
+link: "/products",
+buttonText: "VIEW PRODUCTS"
+},
+
     {
       image: "/banner/Contact 1.png",
-      title: <>Professional  <span style={{ color: '#3A55E8' }}>Team</span></>,
-      description: "Get in touch with our dedicated professional team.",
+      title: <>Strategic <span style={{ color: '#3A55E8' }}>Partnership</span></>,
+      description: "Partner with us to leverage cutting-edge technology and expert consultation for your business growth.",
       link: "/contact",
-      buttonText: "CONTACT NOW"
+      buttonText: "PARTNER WITH US"
+    },
+    {
+      image: "/banner/History.png",
+      title: <>Innovation & <span style={{ color: '#3A55E8' }}>Excellence</span></>,
+      description: "Pioneering technological advancement with over two decades of industry expertise and innovation.",
+      link: "/history",
+      buttonText: "DISCOVER MORE"
     }
   ];
-
+  
   // Auto-rotate images every 5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
@@ -180,7 +181,7 @@ export default function Banner() {
                 <motion.div variants={buttonVariants}>
                   <Link
                     href={banners[currentImageIndex].link}
-                    className="inline-block border-2 rounded-xl border-white text-white font-semibold py-3 px-8 hover:bg-white hover:text-gray-900 transition-all duration-300 tracking-wider text-sm"
+                    className="inline-block border-2 rounded-lg border-white text-white font-semibold py-3 px-8 hover:bg-white hover:text-gray-900 transition-all duration-300 tracking-wider text-sm"
                   >
                     {banners[currentImageIndex].buttonText}
                   </Link>
@@ -202,12 +203,14 @@ export default function Banner() {
                 onClick={() => setCurrentImageIndex(
                   currentImageIndex === 0 ? banners.length - 1 : currentImageIndex - 1
                 )}
-                className="absolute left-4 md:left-8 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 transition-colors duration-300 z-10 p-2"
+                className="absolute left-4 md:left-8 top-1/2 transform -translate-y-1/2 z-10 p-2 rounded-full bg-transparent hover:bg-blue-600/30 transition-all duration-300 group"
                 aria-label="Previous slide"
               >
-                <svg className="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-                </svg>
+                <div className="w-6 h-6 md:w-8 md:h-8 flex items-center justify-center rounded-full group-hover:bg-blue-600 transition-all duration-300">
+                  <svg className="w-4 h-4 md:w-5 md:h-5 text-white" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                  </svg>
+                </div>
               </motion.button>
               
               <motion.button
@@ -218,28 +221,41 @@ export default function Banner() {
                 onClick={() => setCurrentImageIndex(
                   currentImageIndex === banners.length - 1 ? 0 : currentImageIndex + 1
                 )}
-                className="absolute right-4 md:right-8 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 transition-colors duration-300 z-10 p-2"
+                className="absolute right-4 md:right-8 top-1/2 transform -translate-y-1/2 z-10 p-2 rounded-full bg-transparent hover:bg-blue-600/30 transition-all duration-300 group"
                 aria-label="Next slide"
               >
-                <svg className="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
+                <div className="w-6 h-6 md:w-8 md:h-8 flex items-center justify-center rounded-full  transition-all duration-300">
+                  <svg className="w-4 h-4 md:w-5 md:h-5 text-white" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
               </motion.button>
             </>
           )}
         </AnimatePresence>
+        
+        {/* Bottom Indicators - Centered */}
+        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3 z-10">
+          {banners.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => handleIndicatorClick(index)}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                index === currentImageIndex 
+                  ? 'bg-white scale-110' 
+                  : 'bg-white/50 hover:bg-white/80'
+              } ${clickedIndex === index ? 'scale-125' : ''}`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
       </div>
       
-      {/* Bottom Indicators - Centered */}
-      
-      
-    <OurDetails />
-    <Approach />       
-    <Partners/>
+      <OurDetails />
+      <Approach />       
+      <Partners/>
       <Testimony/>
-    <HomeContact />
-  
-
+      <HomeContact />
     </div>
   );
 }

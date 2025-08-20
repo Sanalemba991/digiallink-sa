@@ -358,11 +358,10 @@ const Solutions = () => {
                     <motion.button
                       key={category.id}
                       onClick={() => handleTabChange(category.id)}
-                      className={`flex-shrink-0 inline-flex items-center px-4 py-2.5 rounded-lg font-medium transition-all duration-300 text-sm ${
-                        activeTab === category.id
+                      className={`flex-shrink-0 inline-flex items-center px-4 py-2.5 rounded-lg font-medium transition-all duration-300 text-sm ${activeTab === category.id
                           ? "bg-blue-600 text-white shadow-md"
                           : "bg-white text-gray-700 hover:bg-gray-50 border border-gray-200"
-                      }`}
+                        }`}
                       variants={staggerItem}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
@@ -383,11 +382,10 @@ const Solutions = () => {
                   <motion.button
                     key={category.id}
                     onClick={() => handleTabChange(category.id)}
-                    className={`inline-flex items-center px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
-                      activeTab === category.id
+                    className={`inline-flex items-center px-6 py-3 rounded-lg font-medium transition-all duration-300 ${activeTab === category.id
                         ? "bg-blue-600 text-white shadow-md"
                         : "bg-white text-gray-700 hover:bg-gray-50 border border-gray-200"
-                    }`}
+                      }`}
                     style={{
                       transition: "all 0.3s cubic-bezier(.4,0,.2,1)",
                       minWidth: "180px",
@@ -606,10 +604,17 @@ const Solutions = () => {
                   </motion.div>
 
                   <motion.div className="pt-4" variants={itemVariants}>
-                    <div className="inline-block">
-                      <h3 className="text-sm font-bold text-gray-900 tracking-wider uppercase border-b-2 border-blue-600 pb-1">
+                    <div className="relative">
+                      <button
+                        type="button"
+                        onClick={() => router.push("/overview")}
+                        className="w-full text-left text-sm font-semibold tracking-[0.15em] text-gray-800 uppercase pb-3 mb-2 relative bg-transparent cursor-pointer transition-colors duration-500 hover:text-blue-400 focus:outline-none"
+                        style={{ background: "none" }}
+                      >
                         More about our company
-                      </h3>
+                      </button>
+                      <div className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-600 to-indigo-600 transition-all duration-1000 delay-700 ${inView ? 'w-full' : 'w-0'
+                        }`}></div>
                     </div>
                   </motion.div>
                 </motion.div>
