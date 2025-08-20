@@ -107,15 +107,15 @@ const PartnersSection = () => {
               </p>
             </motion.div>
 
-           <motion.a
-  href="/partner"
-  className="border-2 border-blue-500 text-blue-500 rounded-xl px-8 py-3 font-medium tracking-wide hover:bg-blue-500 hover:text-white transition-colors duration-300"
-  variants={itemVariants}
-  whileHover={{ scale: 1.05 }}
-  whileTap={{ scale: 0.95 }}
->
-  VIEW ALL PARTNERS
-</motion.a>
+            <motion.a
+              href="/partner"
+              className="border-2 border-blue-500 text-blue-500 rounded-xl px-8 py-3 font-medium tracking-wide hover:bg-blue-500 hover:text-white transition-colors duration-300"
+              variants={itemVariants}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              VIEW ALL PARTNERS
+            </motion.a>
 
           </motion.div>
 
@@ -168,17 +168,7 @@ const PartnersSection = () => {
                           className="object-contain md:w-12 md:h-12 w-9 h-9"
                           loading="lazy"
                           // Add unoptimized if external domains are not configured
-                          unoptimized={process.env.NODE_ENV !== "production"}
-                          onError={(e) => {
-                            // Fallback for broken images
-                            const target = e.target as HTMLImageElement;
-                            target.style.display = 'none';
-                            target.parentElement!.innerHTML = `
-                              <div class="flex items-center justify-center w-full h-full text-xs font-medium text-gray-500">
-                                ${partner.name}
-                              </div>
-                            `;
-                          }}
+                          
                         />
                       </motion.div>
                     </motion.div>
@@ -187,7 +177,7 @@ const PartnersSection = () => {
               </motion.div>
 
               {/* Center piece with typewriter effect */}
-             
+
             </div>
           </div>
         </div>
