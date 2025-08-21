@@ -49,7 +49,7 @@ const PartnersSection = () => {
     { name: "Imou", logoType: "image", imagePath: "/details/imou.png" },
     { name: "Ewind", logoType: "image", imagePath: "/details/ewind.png" },
     { name: "Dahua", logoType: "image", imagePath: "/details/dahua.png" },
-    { name: "Hikvision", logoType: "image", imagePath: "/details/imgi_199_lion-head-png-logo-4.png" },
+    { name: "Hikvision", logoType: "image", imagePath: "/details/hik.png" },
     { name: "Uniarch", logoType: "image", imagePath: "/details/imgi_225_Pinterest-Logo-Transparent-Images.png" },
   ];
 
