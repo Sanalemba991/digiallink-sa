@@ -87,28 +87,28 @@ export default function Navbar() {
       label: 'IT & AI Section',
       description: 'Advanced AI & Cloud Solutions for Modern Business',
       icon: BrainCog,
-      image: '/images/solutions/it-ai-solution.jpg'
+      image: '/solution/IT AI.png'
     },
     {
       href: '/solution/elevatorelvsolutions',
       label: 'Elevator ELV Solution',
       description: 'Smart Building Systems & Automation Technology',
       icon: Cable,
-      image: '/images/solutions/elevator-elv-solution.jpg'
+      image: '/solution/Elevator .png'
     },
     {
       href: '/solution/audio',
       label: 'Audio and Visual Solution',
       description: 'Professional AV Systems & Integration Services',
       icon: Video,
-      image: '/images/solutions/audio-visual-solution.jpg'
+      image: '/solution/Audio.png'
     },
     {
       href: '/solution/servalliance',
       label: 'Surveillance Solution',
       description: 'Advanced Security & Monitoring Systems',
       icon: ShieldCheck,
-      image: '/images/solutions/surveillance-solution.jpg'
+      image: '/solution/Surveillance.png'
     },
   ];
 
