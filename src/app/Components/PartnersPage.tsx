@@ -422,7 +422,7 @@ const PartnersPage = () => {
 
             <motion.div variants={itemVariants} custom={0.9}>
               <a
-                href="mailto:"
+                href="/contact"
                 className="inline-flex items-center px-6 py-3 bg-transparent border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white font-semibold text-base rounded-full transition-all duration-300 group"
               >
                 Contact Partnership Team
