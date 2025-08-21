@@ -157,7 +157,7 @@ const Approach: React.FC = () => {
               <div className="relative">
                 <button
                   type="button"
-                  onClick={() => router.push("/overview")}
+                  onClick={() => router.push("/history")}
                  className="w-full text-left text-sm font-semibold tracking-[0.15em] text-gray-800 uppercase pb-3 mb-2 relative bg-transparent cursor-pointer transition-colors duration-500 hover:text-blue-400 focus:outline-none"
 
                   style={{ background: "none" }}

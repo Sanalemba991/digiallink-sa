@@ -115,7 +115,7 @@ const Solutions = () => {
       description:
         "Advanced artificial intelligence and IT infrastructure solutions to transform your business operations.",
       image:
-        "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+        "/solution/IT AI.png",
       features: [
         "AI-Powered Analytics",
         "Cloud Computing Solutions",
@@ -130,7 +130,7 @@ const Solutions = () => {
       description:
         "Seamless integration of diverse systems and technologies for unified operations.",
       image:
-        "https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+        "/solution/Elevator .png",
       features: [
         "Cross-Platform Compatibility",
         "API Integration Services",
@@ -145,7 +145,7 @@ const Solutions = () => {
       description:
         "Cutting-edge audio and visual technologies for immersive experiences.",
       image:
-        "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+        "/solution/Audio.png",
       features: [
         "Digital Signage Systems",
         "Conference Room AV",
@@ -160,7 +160,7 @@ const Solutions = () => {
       description:
         "Comprehensive security and surveillance systems for complete protection.",
       image:
-        "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+        "/solution/Surveillance.png",
       features: [
         "IP Camera Systems",
         "Video Analytics",
@@ -607,7 +607,7 @@ const Solutions = () => {
                     <div className="relative">
                       <button
                         type="button"
-                        onClick={() => router.push("/overview")}
+                        onClick={() => router.push("/our-company")}
                         className="w-full text-left text-sm font-semibold tracking-[0.15em] text-gray-800 uppercase pb-3 mb-2 relative bg-transparent cursor-pointer transition-colors duration-500 hover:text-blue-400 focus:outline-none"
                         style={{ background: "none" }}
                       >
