@@ -434,14 +434,7 @@ export default function ProductsPage() {
                       </div>
 
                       {/* Action Buttons */}
-                      <div className="absolute top-3 right-3 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <button className="p-2 bg-white rounded-full shadow-md hover:bg-gray-50 transition-colors">
-                          <FaHeart className="text-gray-600 text-sm" />
-                        </button>
-                        <button className="p-2 bg-white rounded-full shadow-md hover:bg-gray-50 transition-colors">
-                          <FaShare className="text-gray-600 text-sm" />
-                        </button>
-                      </div>
+                     
                     </div>
 
                     <div className="p-4">
@@ -505,14 +498,7 @@ export default function ProductsPage() {
                       </p>
 
                       <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-3">
-                          <button className="p-2 bg-gray-100 rounded-md hover:bg-gray-200 transition-colors">
-                            <FaHeart className="text-gray-600 text-sm" />
-                          </button>
-                          <button className="p-2 bg-gray-100 rounded-md hover:bg-gray-200 transition-colors">
-                            <FaShare className="text-gray-600 text-sm" />
-                          </button>
-                        </div>
+                       
                         
                         <Link
                           href={`/products/${product._id}`}
