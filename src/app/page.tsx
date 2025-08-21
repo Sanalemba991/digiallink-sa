@@ -14,7 +14,8 @@ export default function Banner() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const [clickedIndex, setClickedIndex] = useState<number | null>(null);
-  
+  const [direction, setDirection] = useState(0); // Add direction state
+
   // Array of banner images with descriptions and links
   const banners = [
     {
@@ -24,13 +25,13 @@ export default function Banner() {
       link: "/awards",
       buttonText: "VIEW AWARDS"
     },
-   {
-image: "/banner/banner (1).jpg",
-title: <>Enterprise <span style={{ color: '#3A55E8' }}>Solutions</span></>,
-description: "Complete surveillance ecosystems: high-definition cameras, reliable storage, professional cabling, and durable hard disks for long-term performance.",
-link: "/products",
-buttonText: "VIEW PRODUCTS"
-},
+    {
+      image: "/banner/P 2.png",
+      title: <>Enterprise <span style={{ color: '#3A55E8' }}>Solutions</span></>,
+      description: "Complete surveillance ecosystems: high-definition cameras, reliable storage, professional cabling, and durable hard disks for long-term performance.",
+      link: "/products",
+      buttonText: "VIEW PRODUCTS"
+    },
 
     {
       image: "/banner/Contact 1.png",
@@ -47,11 +48,12 @@ buttonText: "VIEW PRODUCTS"
       buttonText: "DISCOVER MORE"
     }
   ];
-  
+
   // Auto-rotate images every 5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => 
+      setDirection(1); // Forward direction for auto-rotation
+      setCurrentImageIndex((prevIndex) =>
         prevIndex === banners.length - 1 ? 0 : prevIndex + 1
       );
     }, 5000);
@@ -61,9 +63,27 @@ buttonText: "VIEW PRODUCTS"
 
   // Handle indicator click
   const handleIndicatorClick = (index: number) => {
+    const newDirection = index > currentImageIndex ? 1 : -1;
+    setDirection(newDirection);
     setCurrentImageIndex(index);
     setClickedIndex(index);
     setTimeout(() => setClickedIndex(null), 1000); // Reset after 1 second
+  };
+
+  // Handle previous button click
+  const handlePrevious = () => {
+    setDirection(-1); // Left to right direction
+    setCurrentImageIndex(
+      currentImageIndex === 0 ? banners.length - 1 : currentImageIndex - 1
+    );
+  };
+
+  // Handle next button click
+  const handleNext = () => {
+    setDirection(1); // Right to left direction
+    setCurrentImageIndex(
+      currentImageIndex === banners.length - 1 ? 0 : currentImageIndex + 1
+    );
   };
 
   // Animation variants
@@ -121,24 +141,24 @@ buttonText: "VIEW PRODUCTS"
 
   const arrowVariants = {
     hidden: { opacity: 0 },
-    visible: { 
+    visible: {
       opacity: 1,
       transition: { duration: 0.5 }
     }
   };
 
   return (
-    <div 
+    <div
       className="w-full relative"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Banner Container - Full screen height */}
       <div className="relative w-full h-screen min-h-[600px] overflow-hidden">
-        <AnimatePresence custom={1} initial={false}>
+        <AnimatePresence custom={direction} initial={false}>
           <motion.div
             key={currentImageIndex}
-            custom={1}
+            custom={direction}
             variants={bannerVariants}
             initial="enter"
             animate="center"
@@ -154,25 +174,25 @@ buttonText: "VIEW PRODUCTS"
               priority={currentImageIndex === 0}
               sizes="100vw"
             />
-            
+
             {/* Dark overlay for better text readability */}
             <div className="absolute inset-0 bg-black/40" />
-            
+
             {/* Banner Content - Left aligned */}
             <div className="absolute inset-0 flex items-center">
-              <motion.div 
+              <motion.div
                 initial="hidden"
                 animate="visible"
                 variants={containerVariants}
                 className="text-white px-8 md:px-12 lg:px-24 max-w-2xl"
               >
-                <motion.h1 
+                <motion.h1
                   variants={itemVariants}
                   className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight"
                 >
                   {banners[currentImageIndex].title}
                 </motion.h1>
-                <motion.p 
+                <motion.p
                   variants={itemVariants}
                   className="text-lg md:text-xl lg:text-2xl mb-8 font-light tracking-wide opacity-90"
                 >
@@ -190,7 +210,7 @@ buttonText: "VIEW PRODUCTS"
             </div>
           </motion.div>
         </AnimatePresence>
-        
+
         {/* Navigation Arrows - Animate on hover */}
         <AnimatePresence>
           {isHovered && (
@@ -200,9 +220,7 @@ buttonText: "VIEW PRODUCTS"
                 animate="visible"
                 exit="hidden"
                 variants={arrowVariants}
-                onClick={() => setCurrentImageIndex(
-                  currentImageIndex === 0 ? banners.length - 1 : currentImageIndex - 1
-                )}
+                onClick={handlePrevious}
                 className="absolute left-4 md:left-8 top-1/2 transform -translate-y-1/2 z-10 p-2 rounded-full bg-transparent hover:bg-blue-600/30 transition-all duration-300 group"
                 aria-label="Previous slide"
               >
@@ -212,15 +230,13 @@ buttonText: "VIEW PRODUCTS"
                   </svg>
                 </div>
               </motion.button>
-              
+
               <motion.button
                 initial="hidden"
                 animate="visible"
                 exit="hidden"
                 variants={arrowVariants}
-                onClick={() => setCurrentImageIndex(
-                  currentImageIndex === banners.length - 1 ? 0 : currentImageIndex + 1
-                )}
+                onClick={handleNext}
                 className="absolute right-4 md:right-8 top-1/2 transform -translate-y-1/2 z-10 p-2 rounded-full bg-transparent hover:bg-blue-600/30 transition-all duration-300 group"
                 aria-label="Next slide"
               >
@@ -233,28 +249,27 @@ buttonText: "VIEW PRODUCTS"
             </>
           )}
         </AnimatePresence>
-        
+
         {/* Bottom Indicators - Centered */}
         <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3 z-10">
           {banners.map((_, index) => (
             <button
               key={index}
               onClick={() => handleIndicatorClick(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                index === currentImageIndex 
-                  ? 'bg-white scale-110' 
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentImageIndex
+                  ? 'bg-white scale-110'
                   : 'bg-white/50 hover:bg-white/80'
-              } ${clickedIndex === index ? 'scale-125' : ''}`}
+                } ${clickedIndex === index ? 'scale-125' : ''}`}
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}
         </div>
       </div>
-      
+
       <OurDetails />
-      <Approach />       
-      <Partners/>
-      <Testimony/>
+      <Approach />
+      <Partners />
+      <Testimony />
       <HomeContact />
     </div>
   );

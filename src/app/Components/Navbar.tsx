@@ -76,7 +76,7 @@ export default function Navbar() {
     { href: '/', label: 'HOME' },
         { href: '/our-company', label: 'OUR COMPANY' },
     { href: '/solution', label: 'SOLUTION' },
-    { href: '/product', label: 'PRODUCT' },
+    { href: '/products', label: 'PRODUCTS' },
     { href: '/contact', label: 'CONTACT' },
 
   ];
@@ -160,7 +160,7 @@ export default function Navbar() {
               >
                 Solutions
               </NavLink>
-              <NavLink href="/product" isActive={pathname === '/product'}>Products</NavLink>
+              <NavLink href="/products" isActive={pathname === '/products'}>Products</NavLink>
               <NavLink href="/contact" isActive={pathname === '/contact'}>Contact</NavLink>
             </div>
           </div>
