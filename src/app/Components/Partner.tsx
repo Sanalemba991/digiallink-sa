@@ -50,7 +50,7 @@ const PartnersSection = () => {
     { name: "Ewind", logoType: "image", imagePath: "/details/ewind.png" },
     { name: "Dahua", logoType: "image", imagePath: "/details/dahua.png" },
     { name: "Hikvision", logoType: "image", imagePath: "/details/hik.png" },
-    { name: "Uniarch", logoType: "image", imagePath: "/details/imgi_225_Pinterest-Logo-Transparent-Images.png" },
+    { name: "Uniarch", logoType: "image", imagePath: "/details/uni.png" },
   ];
 
   // Animation variants for the left content area
