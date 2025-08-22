@@ -31,15 +31,9 @@ const ServiceCard = ({ service, index }: { service: any, index: number }) => {
       
       {/* Overlay content */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-transparent flex flex-col justify-start items-center text-center pt-12 px-6">
-        {/* Icon */}
+        {/* Text title instead of icon */}
         <div className="mb-4">
-          <Image 
-            src={service.icon}
-            alt={service.title + " icon"}
-            width={150}
-            height={100}
-            className="object-contain"
-          />
+          <h3 className="text-2xl font-bold text-white">{service.title}</h3>
         </div>
         {/* Description */}
         <p className="text-gray-200 text-m mb-8">{service.description}</p>
@@ -48,8 +42,7 @@ const ServiceCard = ({ service, index }: { service: any, index: number }) => {
       {/* Explore More button */}
       <div className="absolute bottom-6 left-0 right-0 flex justify-center">
         <button className="flex items-center text-white px-0 py-2 font-medium">
-          <span className="mr-2">Explore More</span>
-          <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+          {/* Button content can be added here if needed */}
         </button>
       </div>
     </motion.div>
@@ -62,51 +55,46 @@ const ServicesSection = () => {
     threshold: 0.1,
   });
 
-  // Sample service data
-  const services = [
-    {
-      id: 1,
-      icon: "/details/icon (1).png",
-      image: "/details/Details (1).png",
-      title: "Surveillance Cameras",
-      description: "High-quality surveillance cameras for security"
-    },
-    {
-      id: 2,
-      icon: "/details/icon (2).png",
-      image: "/details/Details (2).png",
-      title: "NVR/DVR Solutions",
-      description: "Reliable NVR/DVR solutions for monitoring"
-    },
-    {
-      id: 3,
-      icon: "/details/icon (3).png",
-      image: "/details/Details (3).png",
-      title: "Entry Management",
-      description: "Secure entry management systems"
-    },
-    {
-      id: 4,
-      icon: "/details/icon (4).png",
-      image: "/details/Details (4).png",
-      title: "Communication",
-      description: "Advanced communication solutions"
-    },
-    {
-      id: 5,
-      icon: "/details/icon (5).png",
-      image: "/details/Details (5).png",
-      title: "AI Network Cameras",
-      description: "Smart network cameras with AI features"
-    },
-    {
-      id: 6,
-      icon: "/details/icon (6).png",
-      image: "/details/Details (6).png",
-      title: "Security Accessories",
-      description: "Complete range of UNV security accessories"
-    }
-  ];
+ // Sample service data
+const services = [
+  {
+    id: 1,
+    image: "/details/Details (1).png",
+    title: "Surveillance Cameras",
+    description: "High-quality surveillance cameras from Toshiba for reliable security solutions."
+  },
+  {
+    id: 2,
+    image: "/details/Details (2).png",
+    title: "NVR/DVR Solutions",
+    description: "Reliable Dahua solutions for seamless monitoring and recording."
+  },
+  {
+    id: 3,
+    image: "/details/Details (3).png",
+    title: "Entry Management",
+    description: "Secure entry management systems powered by UNV for controlled access."
+  },
+  {
+    id: 4,
+    image: "/details/Details (4).png",
+    title: "Communication",
+    description: "Advanced communication solutions from UNV for efficient connectivity."
+  },
+  {
+    id: 5,
+    image: "/details/Details (5).png",
+    title: "AI Network Cameras",
+    description: "Smart AI-powered network cameras from UNV for intelligent surveillance."
+  },
+  {
+    id: 6,
+    image: "/details/Details (6).png",
+    title: "Security Accessories",
+    description: "Complete range of Hikvision security accessories to support all installations."
+  }
+];
+
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-24 md:py-32">
