@@ -3,6 +3,7 @@
 import { usePathname } from 'next/navigation';
 import Navbar from '../Navbar';
 import Footer from '../Footer';
+import FloatingContactButton from '../Whatsapp';
 
 export default function RootLayoutWrapper({
   children,
@@ -15,6 +16,7 @@ export default function RootLayoutWrapper({
   return (
     <>
       {showNavbarFooter && <Navbar />}
+      <FloatingContactButton />
       {children}
       {showNavbarFooter && <Footer />}
     </>

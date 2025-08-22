@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Video } from 'lucide-react';
+import { Video, Filter, X } from 'lucide-react';
 
 // Animation variants
 const fadeInUp: Variants = {
@@ -635,62 +635,98 @@ export default function CareersPage() {
       >
         <motion.h2 
           variants={fadeInUp}
-          className="mb-12 text-center text-3xl font-bold dark:text-white"
+          className="mb-12 text-center text-3xl font-semibold dark:text-white tracking-tight leading-tight font-sans"
         >
-          Current Opportunities
+          Current <span className="text-blue-500">Opportunities</span>
         </motion.h2>
 
-        {/* Filter Section */}
+        {/* Professional Filter Section */}
         <motion.div
           ref={filtersRef}
           initial="hidden"
           animate={filtersInView ? "visible" : "hidden"}
           variants={staggerContainer}
-          className="flex flex-wrap justify-center gap-4 mb-12"
+          className="bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-700 rounded-2xl shadow-lg p-6 mb-12"
         >
-          <motion.div variants={fadeInUp}>
-            <select
-              value={selectedCategory}
-              onChange={(e) => setSelectedCategory(e.target.value)}
-              className="px-4 py-2 border rounded-full bg-white text-gray-700 dark:bg-neutral-800 dark:text-white dark:border-neutral-700"
-          
-         
-            >
-              <option value="All Job Category">All Categories</option>
-              {Array.from(new Set(jobListings.map(job => job.category))).map(category => (
-                <option key={category} value={category}>{category}</option>
-              ))}
-            </select>
-          </motion.div>
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+                <Filter className="w-5 h-5 text-white" />
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Filter Jobs</h3>
+            </div>
+            {(selectedCategory !== "All Job Category" || selectedType !== "All Job Type" || selectedLocation !== "All Job Location") && (
+              <button 
+                onClick={() => {
+                  setSelectedCategory("All Job Category");
+                  setSelectedType("All Job Type");
+                  setSelectedLocation("All Job Location");
+                }}
+                className="flex items-center gap-2 px-3 py-1 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+              >
+                <X className="w-4 h-4" />
+                Clear all
+              </button>
+            )}
+          </div>
 
-          <motion.div variants={fadeInUp}>
-            <select
-              value={selectedType}
-              onChange={(e) => setSelectedType(e.target.value)}
-              className="px-4 py-2 border rounded-full bg-white text-gray-700 dark:bg-neutral-800 dark:text-white dark:border-neutral-700"
-       
-            
-            >
-              <option value="All Job Type">All Types</option>
-              <option value="Full Time">Full Time</option>
-              <option value="Internship">Internship</option>
-            </select>
-          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <motion.div variants={fadeInUp} className="relative">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                Category
+              </label>
+              <div className="relative">
+                <select
+                  value={selectedCategory}
+                  onChange={(e) => setSelectedCategory(e.target.value)}
+                  className="w-full px-4 py-3 pr-10 border border-gray-300 dark:border-neutral-600 rounded-xl bg-white dark:bg-neutral-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 appearance-none cursor-pointer hover:border-gray-400 dark:hover:border-neutral-500"
+                >
+                  <option value="All Job Category">All Categories</option>
+                  {Array.from(new Set(jobListings.map(job => job.category))).map(category => (
+                    <option key={category} value={category}>{category}</option>
+                  ))}
+                </select>
+                <div className="absolute right-3 top-1/2 transform -translate-y-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-gray-400 pointer-events-none"></div>
+              </div>
+            </motion.div>
 
-          <motion.div variants={fadeInUp}>
-            <select
-              value={selectedLocation}
-              onChange={(e) => setSelectedLocation(e.target.value)}
-              className="px-4 py-2 border rounded-full bg-white text-gray-700 dark:bg-neutral-800 dark:text-white dark:border-neutral-700"
-       
- 
-            >
-              <option value="All Job Location">All Locations</option>
-              {Array.from(new Set(jobListings.map(job => job.location))).map(location => (
-                <option key={location} value={location}>{location}</option>
-              ))}
-            </select>
-          </motion.div>
+            <motion.div variants={fadeInUp} className="relative">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                Job Type
+              </label>
+              <div className="relative">
+                <select
+                  value={selectedType}
+                  onChange={(e) => setSelectedType(e.target.value)}
+                  className="w-full px-4 py-3 pr-10 border border-gray-300 dark:border-neutral-600 rounded-xl bg-white dark:bg-neutral-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 appearance-none cursor-pointer hover:border-gray-400 dark:hover:border-neutral-500"
+                >
+                  <option value="All Job Type">All Types</option>
+                  <option value="Full Time">Full Time</option>
+                  <option value="Internship">Internship</option>
+                </select>
+                <div className="absolute right-3 top-1/2 transform -translate-y-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-gray-400 pointer-events-none"></div>
+              </div>
+            </motion.div>
+
+            <motion.div variants={fadeInUp} className="relative">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                Location
+              </label>
+              <div className="relative">
+                <select
+                  value={selectedLocation}
+                  onChange={(e) => setSelectedLocation(e.target.value)}
+                  className="w-full px-4 py-3 pr-10 border border-gray-300 dark:border-neutral-600 rounded-xl bg-white dark:bg-neutral-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 appearance-none cursor-pointer hover:border-gray-400 dark:hover:border-neutral-500"
+                >
+                  <option value="All Job Location">All Locations</option>
+                  {Array.from(new Set(jobListings.map(job => job.location))).map(location => (
+                    <option key={location} value={location}>{location}</option>
+                  ))}
+                </select>
+                <div className="absolute right-3 top-1/2 transform -translate-y-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-gray-400 pointer-events-none"></div>
+              </div>
+            </motion.div>
+          </div>
         </motion.div>
 
         {/* Job Listings */}

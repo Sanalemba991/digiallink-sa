@@ -10,6 +10,7 @@ import Partners from "./Components/Partner";
 import HomeContact from "./Components/HomeContact";
 import Testimony from "./Components/Testimony";
 
+
 export default function Banner() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
@@ -271,6 +272,7 @@ export default function Banner() {
       <Partners />
       <Testimony />
       <HomeContact />
+   
     </div>
   );
 }

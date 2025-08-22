@@ -240,13 +240,9 @@ const Awards: React.FC = () => {
       <main className="min-h-screen">
         {/* Hero Section */}
         <div className="text-center mb-8 mt-12 px-4">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-4 relative inline-block">
-            Our Journey
-            <div className="absolute -bottom-2 left-0 right-0">
-              <div className="h-1 bg-blue-600 w-full"></div>
-              <div className="h-1 bg-blue-400 w-2/3 mx-auto mt-1"></div>
-            </div>
-          </h2>
+          <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 mb-6 tracking-tight leading-tight font-sans">
+  Our <span className="text-blue-600">Accomplishments</span>
+</h2>
         </div>
 
         {/* Timeline Section */}
